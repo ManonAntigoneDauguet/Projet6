@@ -2,7 +2,7 @@
         // Récupération des données JSON
         const response = await fetch('./data/photographers.json');
         const photographers = await response.json();
-        // Retourne le tableau photographers une fois récupéré
+        // Retourne le tableau des données une fois récupéré
         return photographers;
     }
 
@@ -19,6 +19,7 @@
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
+        // Creation et affichage des cartes photographes
         displayData(photographers);
     }
     

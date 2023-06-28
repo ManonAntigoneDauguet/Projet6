@@ -24,3 +24,17 @@
     object-fit: cover;
     clip-path: circle(50% at 50% 50%);
 }
+
+.photographer_section article .localisation {
+    font-size: 13px;
+    color: var(--primary-color);
+}
+
+.photographer_section article .tagline {
+    font-size: 10px;
+}
+
+.photographer_section article .price {
+    font-size: 9px;
+    color: #757575;
+}
