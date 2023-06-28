@@ -1,4 +1,11 @@
 @import url("photographer.css");
+@import url("index.css");
+
+:root {
+    --primary-color: #901C1C;
+    --secondary-color: #D3573C;
+    --modal-background: #DB8876;
+}
 
 body {
     font-family: "DM Sans", sans-serif;
@@ -15,36 +22,11 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: var(--primary-color);
     margin-right: 100px;
 }
 
 .logo {
     height: 50px;
     margin-left: 100px;
-}
-
-.photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-}
-
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-}
-
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
 }
