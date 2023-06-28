@@ -21,4 +21,6 @@
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
 }
