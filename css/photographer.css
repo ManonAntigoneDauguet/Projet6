@@ -1,11 +1,15 @@
-#contact_modal {
-    display: none;
-}
-
+/******************* PHOTOGRAPHE-HEADER ************/
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+}
+
+.photograph-header img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
 }
 
 .contact_button {
@@ -19,6 +23,12 @@
     background-color: var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
+}
+
+
+/****************** MODAL ************************/
+#contact_modal {
+    display: none;
 }
 
 .modal {

@@ -1,6 +1,9 @@
+/**************** IMPORTS **********************/
 @import url("photographer.css");
 @import url("index.css");
 
+
+/**************** BASE *************************/
 :root {
     --primary-color: #901C1C;
     --secondary-color: #D3573C;
