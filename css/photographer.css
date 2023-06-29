@@ -26,6 +26,22 @@
 }
 
 
+/****************** PHOTOGRAPHER-GALLERY *********/
+.photograph-gallery {
+    display: flex;
+}
+
+.gallery-element .photo {
+    height: 351px;
+    width: 350px;
+    object-fit: cover;
+}
+
+.gallery-element .icon {
+    height: 24px;
+}
+
+
 /****************** MODAL ************************/
 #contact_modal {
     display: none;
