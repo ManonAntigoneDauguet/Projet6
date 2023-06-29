@@ -18,7 +18,7 @@
         const gallerySection = document.querySelector(".photograph-gallery")
 
         gallery.forEach((media) => {
-            const mediaModel = photoTemplate(media);
+            const mediaModel = new MediaFactory(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM()
             gallerySection.appendChild(mediaCardDOM);
         });
