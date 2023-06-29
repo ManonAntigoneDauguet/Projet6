@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 70px;
+    margin-top: 80px;
 }
 
 .photographer_section article, .photographer_section a {
