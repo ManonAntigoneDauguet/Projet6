@@ -6,6 +6,7 @@ function photographerTemplate(data) {
     function getUserCardDOM() {
         // Crée une carte photographe avec ses informations à afficher
         const article = document.createElement( 'article' );
+        article.classList.add( 'photographer-card');
 
         const link = document.createElement( 'a' );
         link.href = `photographer.html?photographer=${id}`;
