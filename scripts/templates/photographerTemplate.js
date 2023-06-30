@@ -9,7 +9,6 @@ function photographerTemplate(data) {
 
         const link = document.createElement( 'a' );
         link.href = `photographer.html?photographer=${id}`;
-        link.setAttribute("aria-label", `Lien vers la page du photographe ${name}`);
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
