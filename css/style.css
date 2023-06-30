@@ -17,6 +17,7 @@ body {
 
 
 header {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -27,9 +28,20 @@ header {
 h1 {
     color: var(--primary-color);
     margin-right: 100px;
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
 }
 
 .logo {
     height: 50px;
     margin-left: 100px;
+    position: relative;
+    top: 10px;
+}
+
+a {
+    text-decoration: none;
 }

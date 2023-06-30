@@ -4,6 +4,7 @@ function videoTemplate(data) {
     const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
 
     function getMediaCardDOM() {
+        // Crée et affiche la video sur la page
         const article = document.createElement( 'article' );
         article.classList.add( 'gallery-element' );
         const content = document.createElement( 'div' );

@@ -4,29 +4,34 @@ function photographerTemplate(data) {
     const picture = `assets/photographers/photographersProfilPictures/${portrait}`;
 
     function getUserCardDOM() {
+        // Crée une carte photographe avec ses informations à afficher
         const article = document.createElement( 'article' );
+
+        const link = document.createElement( 'a' );
+        link.href = `photographer.html?photographer=${id}`;
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", `Profil de ${name}`);
+        img.setAttribute("alt", "");
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
-        const localisation = document.createElement( 'p' );
+        const localisation = document.createElement( 'span' );
         localisation.classList.add( 'localisation' )
         localisation.textContent = `${city}, ${country}`;
 
-        const taglineHTML = document.createElement( 'p' );
+        const taglineHTML = document.createElement( 'span' );
         taglineHTML.classList.add( 'tagline' );
         taglineHTML.textContent = tagline;
 
-        const priceHTML = document.createElement( 'p' );
+        const priceHTML = document.createElement( 'span' );
         priceHTML.classList.add( 'price' );
         priceHTML.textContent = `${price}€/jour`;
 
-        article.appendChild(img);
-        article.appendChild(h2);
+        article.appendChild(link);
+        link.appendChild(img);
+        link.appendChild(h2);
         article.appendChild(localisation);
         article.appendChild(taglineHTML);
         article.appendChild(priceHTML);

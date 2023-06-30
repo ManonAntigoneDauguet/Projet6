@@ -4,6 +4,7 @@ function photoTemplate(data) {
     const photo = `assets/photographers/photographer${photographerId}/${image}`;
 
     function getMediaCardDOM() {
+        // Crée et affiche la photo sur la page
         const article = document.createElement( 'article' );
         article.classList.add( 'gallery-element' );
         const content = document.createElement( 'div' );
