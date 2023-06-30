@@ -3,7 +3,6 @@
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 const photographerId = params.get( 'photographer' );
-console.log(photographerId);    
     
     
 //************* CREATION DE LA PAGE PHOTOGRAPHER ******************

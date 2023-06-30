@@ -3,13 +3,8 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
-}
-
-.photograph-header img {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    clip-path: circle(50% at 50% 50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .contact_button {
@@ -26,19 +21,66 @@
 }
 
 
+/****************** GALLERY_SECTION **************/
+.gallery_section {
+    margin: 100px;
+}
+
+.filters-gallery {
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
 /****************** PHOTOGRAPHER-GALLERY *********/
 .photograph-gallery {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gallery-element {
+    width: 350px;
+    height: 351px;
 }
 
 .gallery-element .photo, .gallery-element .video {
-    height: 351px;
+    height: 300px;
     width: 350px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .gallery-element .icon {
     height: 24px;
+}
+
+.gallery-element .text-content {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary-color);
+}
+
+.gallery-element h2 {
+    size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gallery-element .likes-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gallery-element .likes-div span {
+    font-weight: 500;
+    font-size: 24px;
 }
 
 

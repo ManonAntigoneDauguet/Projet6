@@ -23,6 +23,7 @@ function videoTemplate(data) {
         const h2 = document.createElement( 'h2' );
         h2.textContent = title;
         const likesDiv = document.createElement( 'div' );
+        likesDiv.classList.add( 'likes-div' );
         const likesHTML = document.createElement( 'span' );
         likesHTML.textContent = likes;
         const likesIcon = document.createElement( 'img' );
