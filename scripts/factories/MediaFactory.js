@@ -1,3 +1,5 @@
+// Gère le traitement différentiel du média selon son type
+
 class MediaFactory {
     constructor(media) {
         if (media.hasOwnProperty("image")) {
@@ -5,7 +7,7 @@ class MediaFactory {
         } else if (media.hasOwnProperty("video")) {
             return videoTemplate(media);
         } else {
-            throw 'Unknow type media';
+            throw 'Unknow media type';
         }
     }
 }

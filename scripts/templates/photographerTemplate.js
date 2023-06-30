@@ -4,10 +4,11 @@ function photographerTemplate(data) {
     const picture = `assets/photographers/photographersProfilPictures/${portrait}`;
 
     function getUserCardDOM() {
+        // Crée une carte photographe avec ses informations à afficher
         const article = document.createElement( 'article' );
 
         const link = document.createElement( 'a' );
-        link.href = "";
+        link.href = `photographer.html?photographer=${id}`;
         link.setAttribute("aria-label", `Lien vers la page du photographe ${name}`);
 
         const img = document.createElement( 'img' );

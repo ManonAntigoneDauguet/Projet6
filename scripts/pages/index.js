@@ -1,3 +1,5 @@
+//************* CREATION DE LA PAGE INDEX ******************
+
     async function getPhotographers() {
         // Récupération des données JSON
         const response = await fetch('./data/photographers.json');
@@ -8,7 +10,7 @@
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
-
+        // Creation et affichage du profil photographe
         photographers.forEach((photographer) => {
             const photographerModel = photographerTemplate(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
@@ -23,5 +25,5 @@
         displayData(photographers);
     }
     
-    init();
+init();
     
