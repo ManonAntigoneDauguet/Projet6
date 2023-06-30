@@ -1,0 +1,28 @@
+/******************* PHOTOGRAPHER CARD ************/
+/* règles par défaut s'appliquant à la présentation des données du photographe */
+.photographer-card h2 {
+    color: var(--secondary-color);
+    font-size: 36px;
+}
+
+.photographer-card img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.photographer-card .localisation {
+    font-size: 13px;
+    color: var(--primary-color);
+}
+
+.photographer_section article .tagline {
+    font-size: 10px;
+    color: black;
+}
+
+.photographer_section article .price {
+    font-size: 9px;
+    color: #757575;
+}
