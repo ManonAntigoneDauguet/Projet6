@@ -21,11 +21,9 @@ const photographerId = params.get( 'photographer' );
         const photographerModel = photographerTemplate(photographer);
         const ProfileTextDOM = photographerModel.getProfileTextDOM();
         const ProfilePictureDOM = photographerModel.getProfilePictureDOM();
-        const PriceDOM = photographerModel.getPriceNLikesDOM();
 
         photographersSection.appendChild(ProfileTextDOM);
         photographersSection.appendChild(ProfilePictureDOM);
-        photographersSection.appendChild(PriceDOM);
     }
 
     async function displayGalleryData(gallery) {
@@ -43,6 +41,12 @@ const photographerId = params.get( 'photographer' );
         pageTitle.textContent = `Fisheye - ${photographer.name}`;
     }
 
+    async function displayPriceNLikes(photographer, gallery) {
+        const photographersSection = document.querySelector(".photograph-header_content");
+        const PriceDOM = getPriceNLikesDOM(photographer);
+        photographersSection.appendChild(PriceDOM);
+    }
+
     async function init() {
         // Récupère les datas du photographe sélectionné
         const { photographers } = await getPhotographers();
@@ -56,6 +60,7 @@ const photographerId = params.get( 'photographer' );
         displayHeaderData(photographer);
         displayGalleryData(gallery);
         changePageTitle(photographer);
+        displayPriceNLikes(photographer, gallery);
     }
 
 init();
