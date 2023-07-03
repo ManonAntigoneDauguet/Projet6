@@ -32,7 +32,7 @@
     gap: 20px;
 }
 
-.photograph-header h2 {
+.photograph-header .name {
     margin: 0;
     font-size: 64px;
     white-space: nowrap;

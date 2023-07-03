@@ -1,6 +1,6 @@
 /******************* PHOTOGRAPHER CARD ************/
 /* règles par défaut s'appliquant à la présentation des données du photographe */
-.photographer-card h2 {
+.photographer-card .name {
     color: var(--secondary-color);
     font-size: 36px;
 }

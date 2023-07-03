@@ -16,8 +16,9 @@ function photographerTemplate(data) {
         img.setAttribute("alt", "");
         img.classList.add( 'profile-picture' );
 
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+        const title = document.createElement( 'h2' );
+        title.classList.add( 'name' );
+        title.textContent = name;
 
         const localisation = document.createElement( 'span' );
         localisation.classList.add( 'localisation' )
@@ -33,7 +34,7 @@ function photographerTemplate(data) {
 
         article.appendChild(link);
         link.appendChild(img);
-        link.appendChild(h2);
+        link.appendChild(title);
         article.appendChild(localisation);
         article.appendChild(taglineHTML);
         article.appendChild(priceHTML);
@@ -45,8 +46,9 @@ function photographerTemplate(data) {
         const article = document.createElement( 'article' );
         article.classList.add( 'photographer-card' );
 
-        const h2 = document.createElement( 'h1' );
-        h2.textContent = name;
+        const title = document.createElement( 'h1' );
+        title.classList.add( 'name' );
+        title.textContent = name;
 
         const localisation = document.createElement( 'span' );
         localisation.classList.add( 'localisation' )
@@ -56,7 +58,7 @@ function photographerTemplate(data) {
         taglineHTML.classList.add( 'tagline' );
         taglineHTML.textContent = tagline;
 
-        article.appendChild(h2);
+        article.appendChild(title);
         article.appendChild(localisation);
         article.appendChild(taglineHTML);
         return (article);
