@@ -35,6 +35,12 @@ const photographerId = params.get( 'photographer' );
         });
     }
 
+    async function changePageTitle(photographer) {
+        const pageTitle = document.querySelector("title");
+        pageTitle.textContent = `Fisheye - ${photographer.name}`;
+        console.log(pageTitle);
+    }
+
     async function init() {
         // Récupère les datas du photographe sélectionné
         const { photographers } = await getPhotographers();
@@ -47,6 +53,7 @@ const photographerId = params.get( 'photographer' );
         // Creation et affichage du profil et de la gallerie du photographe
         displayHeaderData(photographer);
         displayGalleryData(gallery);
+        changePageTitle(photographer);
     }
 
 init();
