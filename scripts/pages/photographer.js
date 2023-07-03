@@ -16,11 +16,13 @@ const photographerId = params.get( 'photographer' );
     }
 
     async function displayHeaderData(photographer) {
-        const photographersSection = document.querySelector(".photograph-header");
+        const photographersSection = document.querySelector(".photograph-header_content");
         // Creation et affichage du profil photographe
         const photographerModel = photographerTemplate(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
-        photographersSection.appendChild(userCardDOM);
+        const ProfileTextDOM = photographerModel.getProfileTextDOM();
+        photographersSection.appendChild(ProfileTextDOM);
+        const ProfilePictureDOM = photographerModel.getProfilePictureDOM();
+        photographersSection.appendChild(ProfilePictureDOM);
     }
 
     async function displayGalleryData(gallery) {

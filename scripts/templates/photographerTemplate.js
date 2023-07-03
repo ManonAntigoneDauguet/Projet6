@@ -4,7 +4,7 @@ function photographerTemplate(data) {
     const picture = `assets/photographers/photographersProfilPictures/${portrait}`;
 
     function getUserCardDOM() {
-        // Crée une carte photographe avec ses informations à afficher
+        // Crée une petite carte photographe avec ses informations à afficher
         const article = document.createElement( 'article' );
         article.classList.add( 'photographer-card');
 
@@ -14,6 +14,7 @@ function photographerTemplate(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", "");
+        img.classList.add( 'profile-picture' );
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
@@ -38,5 +39,40 @@ function photographerTemplate(data) {
         article.appendChild(priceHTML);
         return (article);
     }
-    return { name, id, picture, getUserCardDOM }
+
+    function getProfileTextDOM() {
+        // Crée et affiche la carte-profil du photographe
+        const article = document.createElement( 'article' );
+        article.classList.add( 'photographer-card' );
+
+        const h2 = document.createElement( 'h2' );
+        h2.textContent = name;
+
+        const localisation = document.createElement( 'span' );
+        localisation.classList.add( 'localisation' )
+        localisation.textContent = `${city}, ${country}`;
+
+        const taglineHTML = document.createElement( 'span' );
+        taglineHTML.classList.add( 'tagline' );
+        taglineHTML.textContent = tagline;
+
+        article.appendChild(h2);
+        article.appendChild(localisation);
+        article.appendChild(taglineHTML);
+        return (article);
+    }
+
+    function getProfilePictureDOM() {
+        const imgDiv = document.createElement( 'div' );
+        imgDiv.classList.add( 'profile-picture-contener' );
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", "");
+        img.classList.add( 'profile-picture' );
+
+        imgDiv.appendChild(img);
+        return (imgDiv);
+    }
+
+    return { name, id, picture, getUserCardDOM, getProfileTextDOM, getProfilePictureDOM }
 }

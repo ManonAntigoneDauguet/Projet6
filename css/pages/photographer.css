@@ -1,10 +1,59 @@
 /******************* PHOTOGRAPHE-HEADER ************/
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 313px;
+    margin: 30px 100px 0px 100px;
+    border-radius: 5px;
+}
+
+.photograph-header_content {
+    height: 313px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0 50px;
+    width: 100%;
+    gap: 5px;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photograph-header .profile-picture-contener {
+    grid-column: 3 / 4;
+    text-align: center;
+}
+
+.photograph-header .photographer-card {
+    position: relative;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photograph-header h2 {
+    margin: 0;
+    font-size: 64px;
+    white-space: nowrap;
+}
+
+.photograph-header .photographer-card .localisation {
+    font-size: 24px;
+    position: relative;
+    bottom: 15px;
+}
+
+.photograph-header .photographer-card .tagline {
+    font-size: 18px;
+    position: relative;
+    bottom: 15px;
+}
+
+.contact {
+    grid-column: 2 / 3;
+    text-align: center;
+    position: relative;
 }
 
 .contact_button {
@@ -18,12 +67,14 @@
     background-color: var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
+    position: relative;
+    transform: translate(-30%, 25%);
 }
 
 
 /****************** GALLERY_SECTION **************/
 .gallery_section {
-    margin: 100px;
+    margin: 25px 100px;
 }
 
 .filters-gallery {
