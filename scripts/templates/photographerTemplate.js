@@ -45,7 +45,7 @@ function photographerTemplate(data) {
         const article = document.createElement( 'article' );
         article.classList.add( 'photographer-card' );
 
-        const h2 = document.createElement( 'h2' );
+        const h2 = document.createElement( 'h1' );
         h2.textContent = name;
 
         const localisation = document.createElement( 'span' );
