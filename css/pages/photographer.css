@@ -72,6 +72,36 @@
 }
 
 
+/****************** Price-AND-Likes **************/
+.price-and-likes {
+    z-index: 2;
+    position: fixed;
+    right: 50px;
+    bottom: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color: var(--modal-background);
+    height: 89px;
+    width: 376px;
+    align-items: center;
+    padding: 0px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.price-and-likes .likes-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price-and-likes .icon {
+    filter: grayscale(100%);
+}
+
+
 /****************** GALLERY_SECTION **************/
 .gallery_section {
     margin: 25px 100px;

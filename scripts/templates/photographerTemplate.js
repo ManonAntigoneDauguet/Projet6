@@ -63,6 +63,7 @@ function photographerTemplate(data) {
     }
 
     function getProfilePictureDOM() {
+        // Crée et affiche la photo du photographe
         const imgDiv = document.createElement( 'div' );
         imgDiv.classList.add( 'profile-picture-contener' );
         const img = document.createElement( 'img' );
@@ -74,5 +75,29 @@ function photographerTemplate(data) {
         return (imgDiv);
     }
 
-    return { name, id, picture, getUserCardDOM, getProfileTextDOM, getProfilePictureDOM }
+    function getPriceNLikesDOM() {
+        // Crée et affiche le prix et le nombre de likes total du photographe
+        const priceNLikesDiv = document.createElement( 'div' );
+        priceNLikesDiv.classList.add( 'price-and-likes' );
+
+        const likesDiv = document.createElement( 'div' );
+        likesDiv.classList.add( 'likes-div' );
+        const likesHTML = document.createElement( 'span' );
+        likesHTML.textContent = '?????';
+        const likesIcon = document.createElement( 'img' );
+        likesIcon.setAttribute("src", "assets/icons/heart.svg");
+        likesIcon.setAttribute("alt", "likes");
+        likesIcon.classList.add( 'icon' );        
+
+        const priceHTML = document.createElement( 'span' );
+        priceHTML.textContent = `${price}€ / jour`;
+
+        priceNLikesDiv.appendChild(priceHTML);
+        priceNLikesDiv.appendChild(likesDiv);
+        likesDiv.appendChild(likesHTML);
+        likesDiv.appendChild(likesIcon);
+        return (priceNLikesDiv);
+    }
+
+    return { name, id, picture, getUserCardDOM, getProfileTextDOM, getProfilePictureDOM, getPriceNLikesDOM }
 }

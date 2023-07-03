@@ -20,9 +20,12 @@ const photographerId = params.get( 'photographer' );
         // Creation et affichage du profil photographe
         const photographerModel = photographerTemplate(photographer);
         const ProfileTextDOM = photographerModel.getProfileTextDOM();
-        photographersSection.appendChild(ProfileTextDOM);
         const ProfilePictureDOM = photographerModel.getProfilePictureDOM();
+        const PriceDOM = photographerModel.getPriceNLikesDOM();
+
+        photographersSection.appendChild(ProfileTextDOM);
         photographersSection.appendChild(ProfilePictureDOM);
+        photographersSection.appendChild(PriceDOM);
     }
 
     async function displayGalleryData(gallery) {
@@ -38,7 +41,6 @@ const photographerId = params.get( 'photographer' );
     async function changePageTitle(photographer) {
         const pageTitle = document.querySelector("title");
         pageTitle.textContent = `Fisheye - ${photographer.name}`;
-        console.log(pageTitle);
     }
 
     async function init() {

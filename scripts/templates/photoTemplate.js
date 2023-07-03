@@ -25,7 +25,7 @@ function photoTemplate(data) {
         likesHTML.textContent = likes;
         const likesIcon = document.createElement( 'img' );
         likesIcon.setAttribute("src", "assets/icons/heart.svg");
-        likesIcon.setAttribute("alt", "coeur");
+        likesIcon.setAttribute("alt", "likes");
         likesIcon.classList.add( 'icon' );
 
         article.appendChild(content);
