@@ -19,9 +19,24 @@
     <main id="main">
       <section class="photograph-header">
         <div class="photograph-header_content">
+          <div class="photographer-card">
+            <h1 class="name"></h1>
+            <span class="localisation"></span>
+            <span class="tagline"></span>
+          </div>
           <div class="contact">
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
           </div>  
+          <div class="profile-picture-contener">
+            <img src="./assets/photographers/account.png" alt="" class="profile-picture">
+          </div>
+          <div class="price-and-likes">
+            <div class="likes-div">
+              <span class="total-likes">????</span>
+              <img src="./assets/icons/heart.svg" alt="likes" class="icon">
+            </div>
+            <span class="price"></span>
+          </div>
         </div>
       </section>
 
@@ -58,8 +73,6 @@
     <script src="scripts/factories/MediaFactory.js"></script>
     <script src="scripts/templates/videoTemplate.js"></script>
     <script src="scripts/templates/photoTemplate.js"></script>
-    <script src="scripts/templates/photographerTemplate.js"></script>
-    <script src="scripts/utils/likesCalculators.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

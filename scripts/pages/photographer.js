@@ -11,40 +11,35 @@ const photographerId = params.get( 'photographer' );
         // Récupération des données JSON
         const response = await fetch('./data/photographers.json');
         const photographers = await response.json();
-        // Retourne le tableau des données une fois récupéré
         return photographers;
     }
 
-    async function displayHeaderData(photographer) {
-        const photographersSection = document.querySelector(".photograph-header_content");
-        // Creation et affichage du profil photographe
-        const photographerModel = photographerTemplate(photographer);
-        const ProfileTextDOM = photographerModel.getProfileTextDOM();
-        const ProfilePictureDOM = photographerModel.getProfilePictureDOM();
+    async function displayPhotographerData(photographer) {
+        const { name, city, country, tagline, price, portrait } = photographer;
+        const picture = `assets/photographers/photographersProfilPictures/${portrait}`;
 
-        photographersSection.appendChild(ProfileTextDOM);
-        photographersSection.appendChild(ProfilePictureDOM);
+        // Affichage du profil photographe
+        document.querySelector( '.name' ).textContent = name;
+        document.querySelector( '.localisation' ).textContent = `${city}, ${country}`;
+        document.querySelector( '.tagline' ).textContent = tagline;
+        document.querySelector( '.profile-picture' ).src = picture;
+
+        // Changement du titre de la page
+        document.querySelector("title").textContent = `Fisheye - ${photographer.name}`;
+
+        // Affichage du tarif et popularité du photographe
+        document.querySelector( '.price' ).textContent = `${price}€ / jour`;
     }
 
     async function displayGalleryData(gallery) {
-        const gallerySection = document.querySelector(".photograph-gallery")
+        const gallerySection = document.querySelector(".photograph-gallery");
+        
         // Creation et affichage de la gallerie du photographe
         gallery.forEach((media) => {
             const mediaModel = new MediaFactory(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM()
             gallerySection.appendChild(mediaCardDOM);
         });
-    }
-
-    async function changePageTitle(photographer) {
-        const pageTitle = document.querySelector("title");
-        pageTitle.textContent = `Fisheye - ${photographer.name}`;
-    }
-
-    async function displayPriceNLikes(photographer, gallery) {
-        const photographersSection = document.querySelector(".photograph-header_content");
-        const PriceDOM = getPriceNLikesDOM(photographer);
-        photographersSection.appendChild(PriceDOM);
     }
 
     async function init() {
@@ -57,10 +52,8 @@ const photographerId = params.get( 'photographer' );
         const gallery = media.filter(media => media.photographerId == photographerId)
 
         // Creation et affichage du profil et de la gallerie du photographe
-        displayHeaderData(photographer);
+        displayPhotographerData(photographer);
         displayGalleryData(gallery);
-        changePageTitle(photographer);
-        displayPriceNLikes(photographer, gallery);
     }
 
 init();
