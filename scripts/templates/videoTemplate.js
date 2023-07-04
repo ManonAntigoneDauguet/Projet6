@@ -1,5 +1,5 @@
 function videoTemplate(data) {
-    const { id, photographerId, title, video, likes, date, price } = data;
+    const { photographerId, title, video, likes } = data;
 
     const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
 

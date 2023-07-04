@@ -1,5 +1,5 @@
 function photoTemplate(data) {
-    const { id, photographerId, title, image, likes, date, price } = data;
+    const { photographerId, title, image, likes } = data;
 
     const photo = `assets/photographers/photographer${photographerId}/${image}`;
 
