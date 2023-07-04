@@ -2,7 +2,7 @@
 
 class MediaFactory {
 
-    test(media) {
+    getMediaCardDOM(media) {
         if (media.hasOwnProperty("image")) {
             return photoTemplate(media);
         } else if (media.hasOwnProperty("video")) {
