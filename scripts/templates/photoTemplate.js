@@ -7,35 +7,23 @@ function photoTemplate(data) {
         // Crée et affiche la photo sur la page
         const article = document.createElement( 'article' );
         article.classList.add( 'gallery-element' );
-        const content = document.createElement( 'div' );
-        content.classList.add( 'content' );
 
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", photo);
-        img.setAttribute("alt", title);
-        img.classList.add( 'photo' );
-
-        const textContent = document.createElement( 'div' );
-        textContent.classList.add( 'text-content' )
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = title;
-        const likesDiv = document.createElement( 'div' );
-        likesDiv.classList.add( 'likes-div' );
-        const likesHTML = document.createElement( 'span' );
-        likesHTML.textContent = likes;
-        const likesIcon = document.createElement( 'img' );
-        likesIcon.setAttribute("src", "assets/icons/heart.svg");
-        likesIcon.setAttribute("alt", "likes");
-        likesIcon.classList.add( 'icon' );
-
-        article.appendChild(content);
-        content.appendChild(img);
-        content.appendChild(textContent);
-        textContent.appendChild(h2);
-        textContent.appendChild(likesDiv);
-        likesDiv.appendChild(likesHTML);
-        likesDiv.appendChild(likesIcon);
+        const content = `
+                <div class="content">
+                    <img src="${photo}" alt="${title}" class="photo">
+                    <div class="text-content">
+                        <h2>${title}</h2>
+                        <div class="likes-div">
+                            <span class="likes">${likes}</span>
+                            <img src="./assets/icons/heart.svg" alt="likes" class="icon">
+                        </div>
+                    </div>
+                </div>
+        `;
+        article.innerHTML = content;
+        
         return (article);
     }
+
     return { getMediaCardDOM }
 }

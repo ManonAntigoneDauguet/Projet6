@@ -33,10 +33,11 @@ const photographerId = params.get( 'photographer' );
 
     async function displayGalleryData(gallery) {
         const gallerySection = document.querySelector(".photograph-gallery");
-        
+
         // Creation et affichage de la gallerie du photographe
         gallery.forEach((media) => {
-            const mediaModel = new MediaFactory(media);
+            const mediaFactory = new MediaFactory();
+            const mediaModel = mediaFactory.test(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM()
             gallerySection.appendChild(mediaCardDOM);
         });
