@@ -10,13 +10,13 @@
   </head>
 
   <body>
-    <header >
+    <header aria-hidden="false">
       <a href="index.html">
         <img src="assets/images/logo.png" class="logo" alt="fisheye Home page">
       </a>
     </header>
 
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <section class="photograph-header">
         <div class="photograph-header_content">
           <div class="photographer-card">
@@ -25,7 +25,7 @@
             <span class="tagline"></span>
           </div>
           <div class="contact">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button button" onclick="displayModal()">Contactez-moi</button>
           </div>  
           <div class="profile-picture-contener">
             <img src="./assets/photographers/account.png" alt="" class="profile-picture">
@@ -54,18 +54,23 @@
       </section>
     </main>
 
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="contactModal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 id="contactModal" class="modal-title">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="icone de fermeture" role="button">
         </header>
 				<form>
 					<div>
-						<label>Prénom</label>
-						<input>
+						<label for="first-name">Prénom</label>
+						<input type="text" 
+              name="first-name" 
+              id="first-name" 
+              aria-required=true 
+              required
+            >
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="send_button button">Envoyer</button>
 				</form>
 			</div>
 		</div>
