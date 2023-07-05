@@ -5,7 +5,7 @@ const header = document.querySelector("header");
 const animationDelay = 500;
 
 
-/*********************  */
+/*******************  OUVERTURE ET FERMETURE **************/
 async function opacityDeseappear(DOMEelement) {
     DOMEelement.style.animationName = "opacity-desappear";
     DOMEelement.style.animationDuration = `${animationDelay}ms`;
@@ -16,7 +16,7 @@ async function opacityAppear(DOMEelement) {
     DOMEelement.style.animationDuration = `${animationDelay}ms`;
 }
 
-async function displayModal() {
+async function openModal() {
     await opacityAppear(modal);
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
@@ -33,3 +33,11 @@ async function closeModal() {
     main.setAttribute("aria-hidden", "false");
     header.setAttribute("aria-hidden", "false");
 }
+
+
+/****************** COMPORTEMENT ET AFFICHAGE ***************/
+async function displayModal() {
+    openModal();      
+}
+
+

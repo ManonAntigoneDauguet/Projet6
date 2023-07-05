@@ -23,6 +23,7 @@ const photographerId = params.get( 'photographer' );
         document.querySelector( '.localisation' ).textContent = `${city}, ${country}`;
         document.querySelector( '.tagline' ).textContent = tagline;
         document.querySelector( '.profile-picture' ).src = picture;
+        document.querySelector( '.modal-title' ).innerHTML = `Contactez-moi<br>${name}`;
 
         // Changement du titre de la page
         document.querySelector("title").textContent = `Fisheye - ${photographer.name}`;

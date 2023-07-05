@@ -15,3 +15,15 @@
 .button:hover, .button:focus {
     background-color: var(--secondary-color);
 }
+
+
+/******************* CLOSE MODALE **********************/
+button[aria-label="Close"] {
+    border: none;
+    background: rgb(0, 0, 0, 0);
+}
+
+button[aria-label="Close"]:hover,
+button[aria-label="Close"]:focus {
+    background: var(--secondary-color);
+}
