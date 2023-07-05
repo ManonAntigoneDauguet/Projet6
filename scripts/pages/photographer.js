@@ -36,8 +36,8 @@ const photographerId = params.get( 'photographer' );
 
         // Creation et affichage de la gallerie du photographe
         gallery.forEach((media) => {
-            const mediaFactory = new MediaFactory();
-            const mediaCardDOM = mediaFactory.getMediaCardDOM(media);
+            const mediaModel = new Media();
+            const mediaCardDOM = mediaModel.getMediaCardDOM(media);
             gallerySection.appendChild(mediaCardDOM);
         });
     }
@@ -45,7 +45,7 @@ const photographerId = params.get( 'photographer' );
     async function init() {
         // Récupère les datas du photographe sélectionné
         const { photographers } = await getPhotographers();
-        const photographer = photographers.find(photographer => photographer.id == photographerId)
+        const photographer = photographers.find(photographer => photographer.id == photographerId);
 
         // Récupère les média du photographe sélectionné
         const { media } = await getPhotographers();

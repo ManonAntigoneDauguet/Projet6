@@ -12,7 +12,7 @@
         const photographersSection = document.querySelector(".photographer_section");
         // Creation et affichage du profil photographe
         photographers.forEach((photographer) => {
-            const photographerModel = photographerLittleTemplate(photographer);
+            const photographerModel = new Photographer(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });

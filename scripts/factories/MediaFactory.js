@@ -1,6 +1,6 @@
 // Gère le traitement différentiel du média selon son type
 
-class MediaFactory {
+class Media {
 
     getMediaCardDOM(media) {
         if (media.hasOwnProperty("image")) {
