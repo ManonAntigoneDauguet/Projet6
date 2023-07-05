@@ -36,8 +36,8 @@ const photographerId = params.get( 'photographer' );
 
         // Creation et affichage de la gallerie du photographe
         gallery.forEach((media) => {
-            const mediaModel = new Media();
-            const mediaCardDOM = mediaModel.getMediaCardDOM(media);
+            const mediaModel = new Media(media);
+            const mediaCardDOM = mediaModel.getMediaCardDOM();
             gallerySection.appendChild(mediaCardDOM);
         });
     }
