@@ -1,11 +1,14 @@
-// Gère le traitement différentiel du média selon son type
-
-class MediaFactory {
+class Media {
     constructor(media) {
-        if (media.hasOwnProperty("image")) {
-            return photoTemplate(media);
-        } else if (media.hasOwnProperty("video")) {
-            return videoTemplate(media);
+        this._media = media;
+    }
+
+    getMediaCardDOM() {
+        // Gère le traitement différentiel du média selon son type
+        if (this._media.hasOwnProperty("image")) {
+            return photoTemplate(this._media);
+        } else if (this._media.hasOwnProperty("video")) {
+            return videoTemplate(this._media);
         } else {
             throw 'Unknow media type';
         }

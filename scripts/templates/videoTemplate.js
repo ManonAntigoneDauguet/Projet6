@@ -1,44 +1,27 @@
-function videoTemplate(data) {
-    const { id, photographerId, title, video, likes, date, price } = data;
+function videoTemplate(media) {
+    const { photographerId, title, video, likes } = media;
 
     const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
 
-    function getMediaCardDOM() {
-        // Crée et affiche la video sur la page
-        const article = document.createElement( 'article' );
-        article.classList.add( 'gallery-element' );
-        const content = document.createElement( 'div' );
-        content.classList.add( 'content' );
+    // Crée et affiche la video sur la page
+    const article = document.createElement( 'article' );
+    article.classList.add( 'gallery-element' );
 
-        const video = document.createElement( 'video' );
-        video.setAttribute("title", title);
-        video.classList.add( 'video' );
-        video.setAttribute("controls", "");
-        const source = document.createElement( 'source' );
-        source.setAttribute("src", videoSrc);
-        source.setAttribute("type", "video/mp4");
+    const content = `
+        <div class="content">
+            <video title="${title}" class="video" controls>
+                <source src="${videoSrc}" type="video/mp4">
+            </video>
+            <div class="text-content">
+                <h2>${title}</h2>
+                <div class="likes-div">
+                    <span class="likes">${likes}</span>
+                    <img src="./assets/icons/heart.svg" alt="likes" class="icon">
+                </div>
+            </div>
+        </div>
+    `;
+    article.innerHTML = content;
 
-        const textContent = document.createElement( 'div' );
-        textContent.classList.add( 'text-content' )
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = title;
-        const likesDiv = document.createElement( 'div' );
-        const likesHTML = document.createElement( 'span' );
-        likesHTML.textContent = likes;
-        const likesIcon = document.createElement( 'img' );
-        likesIcon.setAttribute("src", "assets/icons/heart.svg");
-        likesIcon.setAttribute("alt", "coeur");
-        likesIcon.classList.add( 'icon' );
-
-        article.appendChild(content);
-        content.appendChild(video);
-        video.appendChild(source);
-        content.appendChild(textContent);
-        textContent.appendChild(h2);
-        textContent.appendChild(likesDiv);
-        likesDiv.appendChild(likesHTML);
-        likesDiv.appendChild(likesIcon);
-        return (article);
-    }
-    return { getMediaCardDOM }
+    return (article);
 }

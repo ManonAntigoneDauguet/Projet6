@@ -1,0 +1,224 @@
+/******************* PHOTOGRAPHE-HEADER ************/
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 313px;
+    margin: 30px 100px 0px 100px;
+    border-radius: 5px;
+}
+
+.photograph-header_content {
+    height: 313px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0 50px;
+    width: 100%;
+    gap: 5px;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photograph-header .profile-picture-contener {
+    grid-column: 3 / 4;
+    text-align: center;
+}
+
+.photograph-header .photographer-card {
+    position: relative;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photograph-header .name {
+    margin: 0;
+    font-size: 64px;
+    white-space: nowrap;
+}
+
+.photograph-header .photographer-card .localisation {
+    font-size: 24px;
+    position: relative;
+    bottom: 15px;
+}
+
+.photograph-header .photographer-card .tagline {
+    font-size: 18px;
+    position: relative;
+    bottom: 15px;
+}
+
+.contact {
+    grid-column: 2 / 3;
+    text-align: center;
+    position: relative;
+}
+
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transform: translate(-30%, 25%);
+}
+
+
+/****************** Price-AND-Likes **************/
+.price-and-likes {
+    z-index: 2;
+    position: fixed;
+    right: 50px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--modal-background);
+    height: 89px;
+    width: 376px;
+    align-items: center;
+    padding: 0px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.price-and-likes .likes-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price-and-likes .icon {
+    filter: grayscale(100%);
+}
+
+
+/****************** GALLERY_SECTION **************/
+.gallery_section {
+    margin: 25px 100px;
+}
+
+.filters-gallery {
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+/****************** PHOTOGRAPHER-GALLERY *********/
+.photograph-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gallery-element {
+    width: 350px;
+    height: 351px;
+}
+
+.gallery-element .photo, .gallery-element .video {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gallery-element .icon {
+    height: 24px;
+}
+
+.gallery-element .text-content {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary-color);
+}
+
+.gallery-element h2 {
+    font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gallery-element .likes-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gallery-element .likes-div span {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+
+/****************** MODAL ************************/
+#contact_modal {
+    display: none;
+}
+
+.modal {
+    border-radius: 5px;
+    background-color: var(--modal-background);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+}
+
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal header img {
+    cursor: pointer;
+}
+
+.modal header h2 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+}
