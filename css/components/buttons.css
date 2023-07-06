@@ -21,6 +21,8 @@
 button[aria-label="Close"] {
     border: none;
     background: rgb(0, 0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 button[aria-label="Close"]:hover,
