@@ -11,7 +11,7 @@ function photoTemplate(media) {
         <div class="content">
             <img src="${photo}" alt="${title}" class="photo">
             <div class="text-content">
-                <h2>${title}</h2>
+                <h3 class="title">${title}</h3>
                 <div class="likes-div">
                     <span class="likes">${likes}</span>
                     <img src="./assets/icons/heart.svg" alt="likes" class="icon">

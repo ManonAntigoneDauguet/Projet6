@@ -40,11 +40,12 @@
     cursor: pointer;
 }
 
-.modal header h2 {
+.modal header .modal-title {
+    color: black;
     font-size: 64px;
     font-weight: normal;
     position: relative;
-    bottom: 70px;
+    bottom: 55px;
 }
 
 form {
@@ -54,14 +55,19 @@ form {
     align-items: flex-start;
 }
 
+form fieldset {
+    border: none;
+    padding: 0;
+}
+
+form fieldset + fieldset {
+    margin-top: 10px;
+}
+
 form label {
     color: #312E2E;
     font-size: 36px;
     margin-bottom: 5px;
-}
-
-form label[for="message"] {
-    margin-top: 10px;
 }
 
 form div {
@@ -77,12 +83,15 @@ form input, form textarea {
     width: 100%;    
     border: none;
     border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 form input {
-    height: 97px;
+    height: 68px;
 }
 
 form textarea {
     height: 200px;
+    resize: none;
 }

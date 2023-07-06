@@ -20,7 +20,7 @@
       <section class="photograph-header">
         <div class="photograph-header_content">
           <div class="photographer-card">
-            <h1 class="name"></h1>
+            <h1 class="name">Photographe</h1>
             <span class="localisation"></span>
             <span class="tagline"></span>
           </div>
@@ -41,6 +41,7 @@
       </section>
 
       <section class="gallery_section">
+        <h2 class="hidden">Gallerie d'images</h2>
         <div class="filters-gallery">
           <label for="filters">Trier par</label>
           <select name="filters" id="filters">
@@ -54,43 +55,49 @@
       </section>
     </main>
 
-    <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="contactModal">
+    <div id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contactModal">
 			<div class="modal">
 				<header>
-          <h2 id="contactModal" class="modal-title">Contactez-moi</h2>
+          <h1 id="contactModal" class="modal-title">Contactez-moi</h1>
           <button type="button" aria-label="Close" onclick="closeModal()">
             <img src="assets/icons/close.svg" alt="icone de fermeture">
           </button>
         </header>
 				<form>
 					<div>
-						<label for="first-name">Prénom</label>
-						<input type="text" 
-              name="first-name" 
-              id="first-name" 
-              aria-required="true"
-              required
-            >
-            <label for="family-name">Nom</label>
-            <input type="text"
-              name="family-name"
-              id="family-name"
-              aria-required="true"
-              required
-            >
-            <label for="mail">Email</label>
-            <input type="text"
-              name="mail"
-              id="mail"
-              aria-required="true"
-              required
-            >
-            <label for="message">Votre message</label>
-            <textarea
-              name="message"
-              id="message"
-              aria-required="false">
-            </textarea>
+            <fieldset>
+              <legend class="hidden">Vos coordonnées</legend>
+              <label for="first-name">Prénom</label>
+              <input type="text" 
+                name="first-name" 
+                id="first-name" 
+                aria-required="true"
+                required
+              >
+              <label for="family-name">Nom</label>
+              <input type="text"
+                name="family-name"
+                id="family-name"
+                aria-required="true"
+                required
+              >
+              <label for="mail">Email</label>
+              <input type="email"
+                name="mail"
+                id="mail"
+                aria-required="true"
+                required
+              >            
+            </fieldset>
+            <fieldset>
+              <legend class="hidden">Message</legend>
+              <label for="message">Votre message</label>
+              <textarea
+                name="message"
+                id="message"
+                aria-required="false">
+              </textarea>              
+            </fieldset>
 					</div>
           <button type="submit" class="send_button button">Envoyer</button>
 				</form>
