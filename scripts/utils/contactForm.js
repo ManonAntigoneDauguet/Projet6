@@ -1,6 +1,6 @@
 /********************* ELEMENTS DU DOM ********************/
 const modal = document.getElementById("contact_modal");
-form = document.querySelector("form");
+form = document.querySelector("form[name='contact_form']");
 const main = document.querySelector("main");
 const header = document.querySelector("header");
 const modalHeader = document.querySelector(".modal header");
@@ -31,6 +31,7 @@ async function openModal() {
     modal.setAttribute("aria-hidden", "false");
     main.setAttribute("aria-hidden", "true");
     header.setAttribute("aria-hidden", "true");
+    closeButton.focus();
 }
 
 async function closeModal() {
@@ -47,6 +48,11 @@ async function closeModal() {
 /****************** COMPORTEMENT ET AFFICHAGE ***************/
 contactButton.addEventListener("click", () => {
     openModal();  
+    document.addEventListener("keydown", (event) => {
+        if (event.key == "Escape") {
+            closeModal();
+        }
+    })
 });
 
 closeButton.addEventListener("click", () => {
@@ -65,9 +71,10 @@ form.addEventListener("submit", (event) => {
     validationMessage.style.display = "block";
     form.style.display = "none";
     modalHeader.style.display = "none";
-})
+});
 
 endedButton.addEventListener("click", () => {
     location.reload();
-})
+});
+
 
