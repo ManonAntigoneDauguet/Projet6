@@ -25,7 +25,7 @@
             <span class="tagline"></span>
           </div>
           <div class="contact">
-            <button class="contact_button button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button button">Contactez-moi</button>
           </div>  
           <div class="profile-picture-contener">
             <img src="./assets/photographers/account.png" alt="" class="profile-picture">
@@ -59,11 +59,11 @@
 			<div class="modal">
 				<header>
           <h1 id="contactModal" class="modal-title">Contactez-moi</h1>
-          <button type="button" aria-label="Close" onclick="closeModal()">
+          <button type="button" aria-label="Close">
             <img src="assets/icons/close.svg" alt="icone de fermeture">
           </button>
         </header>
-				<form>
+				<form method="post" action="">
 					<div>
             <fieldset>
               <legend class="hidden">Vos coordonnées</legend>
@@ -101,6 +101,10 @@
 					</div>
           <button type="submit" class="send_button button">Envoyer</button>
 				</form>
+        <div class="validation_message">
+            <p>Demande de contact envoyée !</p>
+            <button type="button" class="button">Fermer</button>
+        </div>
 			</div>
 		</div>
 
