@@ -25,3 +25,8 @@
     margin-bottom: 0;
     margin-top: 0;
 }
+
+.photographer_section .photographer-card a:hover,
+.photographer_section .photographer-card a:focus {
+    opacity: 0.6;
+}

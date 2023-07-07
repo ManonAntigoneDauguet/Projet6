@@ -10,30 +10,43 @@
   </head>
 
   <body>
-    <header >
+    <header aria-hidden="false">
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye Home page">
+        <img src="assets/images/logo.png" 
+          class="logo" 
+          alt="fisheye Home page"
+        >
       </a>
     </header>
 
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <section class="photograph-header">
         <div class="photograph-header_content">
           <div class="photographer-card">
-            <h1 class="name"></h1>
+            <h1 class="name">
+              Photographe
+            </h1>
             <span class="localisation"></span>
             <span class="tagline"></span>
           </div>
           <div class="contact">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button button">
+              Contactez-moi
+            </button>
           </div>  
           <div class="profile-picture-contener">
-            <img src="./assets/photographers/account.png" alt="" class="profile-picture">
+            <img src="./assets/photographers/account.png" 
+              alt="" 
+              class="profile-picture"
+            >
           </div>
           <div class="price-and-likes">
             <div class="likes-div">
               <span class="total-likes">????</span>
-              <img src="./assets/icons/heart.svg" alt="likes" class="icon">
+              <img src="./assets/icons/heart.svg" 
+                alt="likes" 
+                class="icon"
+              >
             </div>
             <span class="price"></span>
           </div>
@@ -41,8 +54,13 @@
       </section>
 
       <section class="gallery_section">
+        <h2 class="hidden">
+          Gallerie d'images
+        </h2>
         <div class="filters-gallery">
-          <label for="filters">Trier par</label>
+          <label for="filters">
+            Trier par
+          </label>
           <select name="filters" id="filters">
             <option value="by-popularity">Popularité</option>
             <option value="by-date">Date</option>
@@ -54,26 +72,80 @@
       </section>
     </main>
 
-    <div id="contact_modal">
+    <div id="contact_modal" 
+      role="dialog" 
+      aria-hidden="true" 
+      aria-labelledby="contactModal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="icone de fermeture" role="button">
+          <h1 id="contactModal" class="modal-title">
+            Contactez-moi
+          </h1>
+          <button type="button" aria-label="Close">
+            <img src="assets/icons/close.svg" 
+              alt="icone de fermeture"
+            >
+          </button>
         </header>
-				<form>
+				<form name="contact_form">
 					<div>
-						<label>Prénom</label>
-						<input>
+            <fieldset>
+              <legend class="hidden">
+                Vos coordonnées
+              </legend>
+              <label for="first-name">Prénom</label>
+              <input type="text" 
+                name="first-name" 
+                id="first-name" 
+                aria-required="true"
+                required
+              >
+              <div class="feedback"></div>
+              <label for="family-name">Nom</label>
+              <input type="text"
+                name="family-name"
+                id="family-name"
+                aria-required="true"
+                required
+              >
+              <div class="feedback"></div>
+              <label for="mail">Email</label>
+              <input type="email"
+                name="mail"
+                id="mail"
+                aria-required="true"
+                required
+              >
+              <div class="feedback"></div>
+            </fieldset>
+            <fieldset>
+              <legend class="hidden">
+                Message
+              </legend>
+              <label for="message">Votre message</label>
+              <textarea
+                name="message"
+                id="message"
+                aria-required="false">
+              </textarea>              
+            </fieldset>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="send_button button">
+            Envoyer
+          </button>
 				</form>
+        <div class="validation_message">
+            <p>
+              Demande de contact envoyée !
+            </p>
+            <button type="button" class="button">
+              Fermer
+            </button>
+        </div>
 			</div>
 		</div>
 
-    <script src="scripts/factories/mediaFactory.js"></script>
-    <script src="scripts/templates/videoTemplate.js"></script>
-    <script src="scripts/templates/photoTemplate.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
+    <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

@@ -1,3 +1,7 @@
+//*************** IMPORTS DES FICHIERS NECESSAIRES ***************/
+import Photographer from "../factories/photographerFactory.js";
+
+
 //************* CREATION DE LA PAGE INDEX ******************
 
     async function getPhotographers() {

@@ -1,0 +1,31 @@
+/*********************** MAIN BUTTONS ******************/
+.button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover, .button:focus {
+    background-color: var(--secondary-color);
+}
+
+
+/******************* CLOSE MODALE **********************/
+button[aria-label="Close"] {
+    border: none;
+    background: rgb(0, 0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+button[aria-label="Close"]:hover,
+button[aria-label="Close"]:focus {
+    background: var(--secondary-color);
+}
