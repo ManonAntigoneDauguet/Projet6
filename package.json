@@ -2,7 +2,7 @@
   "name": "creez_un_site_accessible_pour_une_plateforme_de_photographes_dauguet_manon",
   "version": "1.0.0",
   "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
-  "main": "index.js",
+  "main": ".eslintrc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

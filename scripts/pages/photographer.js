@@ -1,3 +1,7 @@
+//*************** IMPORTS DES FICHIERS NECESSAIRES ***************/
+import Media from "../factories/mediaFactory.js";
+
+
 //************** RECUPERATION DU QUERY PARAM *********************
 
 const queryString = window.location.search;
