@@ -1,4 +1,4 @@
-/****************** MODAL ************************/
+/****************** MODALE ************************/
 #contact_modal {
     display: none;
     position: fixed;
@@ -98,10 +98,44 @@ form textarea {
     resize: none;
 }
 
+
+/***************** FEEDBACK MODALE ***********************/
 .validation_message {
     display: none;
     position: relative;
     top: 0;
     font-size: 36px;
     margin: auto;
+}
+
+.feedback {
+    position: absolute;
+    margin: 0;
+    width: 90%;
+}
+
+.feedback::after {
+    display: block;
+    position: absolute;
+    right: 15px;
+    bottom: 12px;
+    font-size: 36px;
+}
+
+input[aria-invalid="true"] {
+    border: 5px solid red;
+}
+
+input[aria-invalid="true"] + .feedback::after {
+    content: "✕";
+    color: red;
+}
+
+input[aria-invalid="false"] {
+    border: 5px solid green;
+}
+
+input[aria-invalid="false"] + .feedback::after {
+    content: "✓";
+    color: green;
 }

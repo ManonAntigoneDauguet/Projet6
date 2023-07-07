@@ -42,6 +42,7 @@ async function closeModal() {
     modal.setAttribute("aria-hidden", "true");
     main.setAttribute("aria-hidden", "false");
     header.setAttribute("aria-hidden", "false");
+    contactButton.focus();
 }
 
 
@@ -61,16 +62,18 @@ closeButton.addEventListener("click", () => {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("envoyé");
-    for (let i = 0; i < inputs.length; i++) {
-        console.log(`${inputs[i].name} : ${inputs[i].value}`); 
+    if (isAllInputsValid()) {
+        for (let i = 0; i < inputs.length; i++) {
+            console.log(`${inputs[i].name} : ${inputs[i].value}`); 
+        }
+        if (message.value.trim() !== "") {
+            console.log(`${message.name} : ${message.value}`);
+        }
+        validationMessage.style.display = "block";
+        form.style.display = "none";
+        modalHeader.style.display = "none";
+        endedButton.focus();                  
     }
-    if (message.value.trim() !== "") {
-        console.log(`${message.name} : ${message.value}`);
-    }
-    validationMessage.style.display = "block";
-    form.style.display = "none";
-    modalHeader.style.display = "none";
 });
 
 endedButton.addEventListener("click", () => {
@@ -78,3 +81,38 @@ endedButton.addEventListener("click", () => {
 });
 
 
+/******************** VALIDATION DES INPUTS ET FEEDBACK *********/
+function isInputValid(input) {
+    let emailRegExp = new RegExp("[a-z._-]+@[a-z._-]+\\.[a-z._-]+")
+    if (input.value.trim() === "" ||
+        (input.type === "email" 
+        && !emailRegExp.test(input.value.trim()))) {
+        
+        return false;
+    } 
+    return true;   
+}
+
+function showFeedback(input) {
+    if (!isInputValid(input)) {
+        input.setAttribute("aria-invalid", "true");
+    } else {
+        input.setAttribute("aria-invalid", "false"); 
+    }
+}
+
+function isAllInputsValid() {
+    for (let i = 0; i < inputs.length; i++) {
+        if (!isInputValid(inputs[i])) {
+            return false;
+        }
+    } 
+    return true;  
+}
+
+for (let i = 0; i < inputs.length; i++) {
+    let input = inputs[i];
+    input.addEventListener('change', () => {
+      showFeedback(input);
+    });
+}
