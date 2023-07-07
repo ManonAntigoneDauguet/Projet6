@@ -96,12 +96,6 @@
     margin: 25px 100px;
 }
 
-.filters-gallery {
-    margin-bottom: 60px;
-    font-weight: 700;
-    font-size: 18px;
-}
-
 
 /****************** PHOTOGRAPHER-GALLERY *********/
 .photograph-gallery {
@@ -152,4 +146,59 @@
 .gallery-element .likes-div span {
     font-weight: 500;
     font-size: 24px;
+}
+
+
+/**************** FILTERS OPTIONS ******************/
+.filters-gallery {
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    gap: 25px;
+}
+
+.filters_options {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 170px;
+    padding: 11px;
+    box-sizing: border-box;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 200ms ease-in;
+    z-index: 2;
+}
+
+.filters_options button {
+    text-align: start;
+    width: auto;
+    border-radius: 0;
+    height: 59px;
+}
+
+.filters_options button + button {
+    border-top: white solid 3px;
+}
+
+#filters {
+    display: none;
+}
+
+#filters:checked ~ .filters_options {
+    transform: scaleY(1);
+}
+
+.filter_selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.filter_selected .chevron {
+    height: 32px;
+    filter: invert(100%);
 }

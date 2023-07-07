@@ -53,19 +53,35 @@
         </div>
       </section>
 
+          <!-- <select name="filters" id="select-filters">
+            <option value="by-popularity">Popularité</option>
+            <option value="by-date">Date</option>
+            <option value="by-titke">Titre</option>
+          </select> -->
+
       <section class="gallery_section">
         <h2 class="hidden">
           Gallerie d'images
         </h2>
         <div class="filters-gallery">
+          <input type="checkbox" id="filters">
           <label for="filters">
             Trier par
           </label>
-          <select name="filters" id="filters">
-            <option value="by-popularity">Popularité</option>
-            <option value="by-date">Date</option>
-            <option value="by-titke">Titre</option>
-          </select>
+          
+            <div class="filter_selected button">
+              <span>Popularité</span>
+              <img src="./assets/icons/chevron.svg" 
+                alt="icone d'ouverture de sélection"
+                class="chevron"
+              >
+            </div>
+            <div class="filters_options">  
+              <button type="button" class="button">Popularité</button>
+              <button type="button" class="button">Date</button>
+              <button type="button" class="button">Titre</button>
+            </div>
+
         </div>
         <div class="photograph-gallery">
         </div>
