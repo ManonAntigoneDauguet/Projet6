@@ -1,6 +1,6 @@
 /********************* ELEMENTS DU DOM ********************/
 const modal = document.getElementById("contact_modal");
-form = document.querySelector("form[name='contact_form']");
+const form = document.querySelector("form[name='contact_form']");
 const main = document.querySelector("main");
 const header = document.querySelector("header");
 const modalHeader = document.querySelector(".modal header");
