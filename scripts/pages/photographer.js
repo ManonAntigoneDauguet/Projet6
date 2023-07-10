@@ -37,8 +37,6 @@ const photographerId = params.get( 'photographer' );
     }
 
     async function displayGalleryData(gallery) {
-        const gallerySection = document.querySelector(".photograph-gallery");
-
         // Creation et affichage de la gallerie du photographe
         gallery.forEach((media) => {
             const mediaModel = new Media(media);
@@ -54,13 +52,17 @@ const photographerId = params.get( 'photographer' );
 
         // Récupère les média du photographe sélectionné
         const { media } = await getPhotographers();
-        const gallery = media.filter(media => media.photographerId == photographerId)
+        gallery = media.filter(media => media.photographerId == photographerId);
 
         // Creation et affichage du profil et de la gallerie du photographe
         displayPhotographerData(photographer);
         displayGalleryData(gallery);
+
+
     }
 
+const gallerySection = document.querySelector(".photograph-gallery");
+let gallery = "pas encore chargée";
 init();
 
 
@@ -100,3 +102,29 @@ for (let i = 0; i < filters.length; i++) {
 
 
 // Filtres
+filter3.addEventListener("click", () => { 
+    const orderedByTitle = Array.from(gallery);
+    orderedByTitle.sort(function (a, b) {
+        return a.title.localeCompare(b.title);
+    });
+    gallerySection.innerHTML = "";
+    displayGalleryData(orderedByTitle);
+})    
+
+filter1.addEventListener("click", () => {
+    const orderedByPopularity = Array.from(gallery);
+    orderedByPopularity.sort(function (a, b) {
+        return b.likes - a.likes;
+    });
+    gallerySection.innerHTML = "";
+    displayGalleryData(orderedByPopularity);
+})  
+
+filter2.addEventListener("click", () => {
+    const orderedByDate = Array.from(gallery);
+    orderedByDate.sort(function (a, b) {
+        return b.date.localeCompare(a.date);
+    });
+    gallerySection.innerHTML = "";
+    displayGalleryData(orderedByDate);
+}) 
