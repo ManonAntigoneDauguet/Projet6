@@ -1,4 +1,4 @@
-//*************** IMPORTS DES FICHIERS NECESSAIRES ***************/
+//*************** IMPORTS DES FICHIERS NECESSAIRES ***************
 import Media from "../factories/mediaFactory.js";
 
 
@@ -62,3 +62,41 @@ const photographerId = params.get( 'photographer' );
     }
 
 init();
+
+
+//************** GESTION DES FILTRES GALLERIE *******************
+// Elements du DOM
+const filter1 = document.getElementById( 'listbox1-1' );
+const filter2 = document.getElementById( 'listbox1-2' );
+const filter3 = document.getElementById( 'listbox1-3' );
+const filterChosen = document.querySelector( '.filter_selected span' );
+const filters = [filter1, filter2, filter3];
+const listbox1 = document.getElementById( 'listbox1' );
+const openButton = document.getElementById( 'filters-checkbox' );
+
+
+// Ouverture et fermeture de la boite de sélection
+function closeSelection() {
+    openButton.checked = false;
+}
+
+openButton.addEventListener("change", () => {
+    if (openButton.checked) {
+        document.querySelector( '.chevron' ).alt = "Refermer";
+    } else {
+        document.querySelector( '.chevron' ).alt = "Etendre";
+    }
+})
+
+
+// Gestion de la sélection du filtre
+for (let i = 0; i < filters.length; i++) {
+    filters[i].addEventListener("click", () => {
+        filterChosen.innerText = filters[i].innerText;
+        closeSelection();
+        listbox1.setAttribute("aria-activedescendant", `${filters[i].id}`)
+    })
+}
+
+
+// Filtres

@@ -6,7 +6,7 @@ const header = document.querySelector("header");
 const modalHeader = document.querySelector(".modal header");
 const animationDelay = 500;
 const validationMessage = document.querySelector(".validation_message");
-const inputs = document.querySelectorAll( 'input' );
+const inputs = document.querySelectorAll( '.modal input' );
 const message = document.querySelector("textarea[name='message']");
 // boutons de la page
 const contactButton = document.querySelector(".contact_button");

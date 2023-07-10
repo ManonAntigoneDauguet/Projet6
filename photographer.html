@@ -58,20 +58,20 @@
           Gallerie d'images
         </h2>
         <div class="filters-gallery">
-          <p>Trier par</p>
+          <p id="listbox1" role="label">Trier par</p>
           <div class="filters">
-            <input type="checkbox" id="filters">
-            <label for="filters" class="filter_selected button">
+            <input type="checkbox" id="filters-checkbox">
+            <label for="filters-checkbox" class="filter_selected button">
               <span>Popularité</span>
               <img src="./assets/icons/chevron.svg" 
                 alt="Etendre"
                 class="chevron"
               >                 
             </label>
-            <div class="filters_options">  
-              <button type="button" class="button">Popularité</button>
-              <button type="button" class="button">Date</button>
-              <button type="button" class="button">Titre</button>
+            <div class="filters_options" role="listbox" id="listbox1" aria-labelledby="listbox1" aria-activedescendant="listbox1-1">  
+              <button type="button" class="button" role="option" id="listbox1-1">Popularité</button>
+              <button type="button" class="button" role="option" id="listbox1-2">Date</button>
+              <button type="button" class="button" role="option" id="listbox1-3">Titre</button>
             </div>
           </div>
         </div>

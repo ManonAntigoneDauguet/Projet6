@@ -160,7 +160,6 @@
 
 .filters {
     position: relative;
-    display: flex;
 }
 
 .filters_options {
@@ -181,14 +180,14 @@
     text-align: start;
     width: auto;
     border-radius: 0;
-    height: 59px;
+    height: 52px;
 }
 
 .filters_options button + button {
     border-top: white solid 1px;
 }
 
-#filters {
+#filters-checkbox {
     position: absolute;
     z-index: 3;
     right: 6px;
@@ -217,15 +216,15 @@
 
 
 /* évennements lors de l'ouverture */
-#filters:checked ~ .filters_options {
+#filters-checkbox:checked ~ .filters_options {
     transform: scaleY(1);
 }
 
-#filters:checked ~ .filter_selected .chevron {
+#filters-checkbox:checked ~ .filter_selected .chevron {
     transform: rotate(180deg);
     transition: .1s ease-in-out;
 }
 
-#filters:not(:checked) ~ .filter_selected .chevron {
+#filters-checkbox:not(:checked) ~ .filter_selected .chevron {
     transition: .2s ease-in-out;
 }
