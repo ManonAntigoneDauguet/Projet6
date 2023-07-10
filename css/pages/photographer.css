@@ -190,18 +190,14 @@
 
 #filters {
     position: absolute;
-    opacity: 0;
     z-index: 3;
-    right: 5px;
+    right: 6px;
     top: 15px;
     width: 35px;
     height: 35px;
     border-radius: 5px;
-    background: rgba(40,40,40,0.2);
-}
-
-#filters::before {
-    content: "";
+    border: none;
+    appearance: none;
 }
 
 .filter_selected {
