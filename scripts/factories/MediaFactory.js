@@ -15,7 +15,7 @@ class Media {
     }
 
     generateVideo(media) { 
-        const { photographerId, title, video, likes } = media;
+        const { photographerId, title, video, likes, id } = media;
         const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
     
         // Crée et affiche la video sur la page
@@ -30,10 +30,14 @@ class Media {
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
+                        <input type="checkbox" 
+                            id="${id}"
+                            class="like-checkbox"
+                        >                     
                         <span class="likes">${likes}</span>
                         <img src="./assets/icons/heart.svg" 
                             alt="likes" 
-                            class="icon"
+                            class="heart"
                         >
                     </div>
                 </div>
@@ -45,7 +49,7 @@ class Media {
     }
     
     generatePhoto(media) {
-        const { photographerId, title, image, likes } = media;
+        const { photographerId, title, image, likes, id } = media;
         const photo = `assets/photographers/photographer${photographerId}/${image}`;
     
         // Crée et affiche la photo sur la page
@@ -58,10 +62,14 @@ class Media {
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
+                        <input type="checkbox" 
+                            id="${id}"
+                            class="like-checkbox"
+                        >                     
                         <span class="likes">${likes}</span>
                         <img src="./assets/icons/heart.svg" 
                             alt="likes" 
-                            class="icon"
+                            class="heart"
                         >
                     </div>
                 </div>
