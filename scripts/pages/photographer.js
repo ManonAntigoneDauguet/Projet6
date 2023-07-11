@@ -78,6 +78,9 @@ const openButton = document.getElementById( 'filters-checkbox' );
 // Ouverture et fermeture de la boite de sélection
 function closeSelection() {
     openButton.checked = false;
+    for (let i = 0; i < filters.length; i++) {
+        filters[i].setAttribute("tabindex", "-1");
+    }   
 }
 
 openButton.addEventListener("change", () => {

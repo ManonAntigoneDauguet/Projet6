@@ -58,7 +58,7 @@
           Gallerie d'images
         </h2>
         <div class="filters-gallery">
-          <p id="listbox1" role="label">
+          <p aria-labelledby="listbox1">
             Trier par
           </p>
           <div class="filters">
@@ -74,7 +74,6 @@
               class="filters_options" 
               role="listbox" 
               id="listbox1" 
-              aria-labelledby="listbox1" 
               aria-activedescendant="listbox1-1"
             >  
               <button type="button" 
@@ -170,7 +169,10 @@
               </textarea>              
             </fieldset>
 					</div>
-          <button type="submit" class="send_button button">
+          <button type="submit" 
+            class="send_button button"
+            aria-label="envoyer"
+          >
             Envoyer
           </button>
 				</form>
