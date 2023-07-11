@@ -58,6 +58,7 @@ const photographerId = params.get( 'photographer' );
         displayPhotographerData(photographer);
         displayGalleryData(gallery);
         displayFilters(gallery);
+        displayLikes(gallery);
     }
 
 const gallerySection = document.querySelector(".photograph-gallery");
@@ -65,6 +66,7 @@ init();
 
 
 //************** GESTION DES FILTRES GALLERIE *******************
+
 // Elements du DOM
 const filter1 = document.getElementById( 'listbox1-1' );
 const filter2 = document.getElementById( 'listbox1-2' );
@@ -73,7 +75,6 @@ const filterChosen = document.querySelector( '.filter_selected span' );
 const filters = [filter1, filter2, filter3];
 const listbox1 = document.getElementById( 'listbox1' );
 const openButton = document.getElementById( 'filters-checkbox' );
-
 
 // Ouverture et fermeture de la boite de sélection
 function closeSelection() {
@@ -98,7 +99,6 @@ openButton.addEventListener("change", () => {
     }
 })
 
-
 // Gestion de la sélection du filtre
 for (let i = 0; i < filters.length; i++) {
     filters[i].addEventListener("click", () => {
@@ -107,7 +107,6 @@ for (let i = 0; i < filters.length; i++) {
         listbox1.setAttribute("aria-activedescendant", `${filters[i].id}`)
     })
 }
-
 
 // Filtres
 function displayFilters(gallery) {
@@ -156,3 +155,18 @@ function openFiltersNavigation() {
         }
     })    
 }
+
+
+//******************* GESTION DES LIKES *******************
+
+function displayLikes(gallery) {
+    yieldTotalLikes(gallery);
+}
+
+function yieldTotalLikes(gallery) {
+    const totalLikesHTML = document.querySelector( '.total-likes');
+    const allMediaLikes = gallery.map(gallery => gallery.likes);    
+    let totalLikes = allMediaLikes.reduce((partialSum, a) => partialSum + a, 0);
+    totalLikesHTML.innerText = totalLikes;
+}
+
