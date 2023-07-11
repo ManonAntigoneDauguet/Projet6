@@ -86,6 +86,7 @@ function closeSelection() {
 openButton.addEventListener("change", () => {
     if (openButton.checked) {
         document.querySelector( '.chevron' ).alt = "Refermer";
+        openFiltersNavigation();
         for (let i = 0; i < filters.length; i++) {
             filters[i].setAttribute("tabindex", "0");
         }
@@ -139,5 +140,19 @@ function orderByPopularity(gallery) {
         return b.likes - a.likes;
     });
     gallerySection.innerHTML = "";
-    displayGalleryData(orderedByPopularity);    
+    displayGalleryData(orderedByPopularity);
+}
+
+function openFiltersNavigation() {
+    let target = -1;
+    document.addEventListener("keydown", (e) => {
+        if (e.key == "ArrowRight" && target < filters.length-1) {      
+            target += 1;
+            filters[target].focus();
+        }        
+        if (e.key == "ArrowLeft" && target > 0) {     
+            target -= 1;
+            filters[target].focus();
+        }
+    })    
 }
