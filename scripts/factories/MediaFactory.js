@@ -30,6 +30,10 @@ class Media {
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
+                        <img src="./assets/icons/empty-heart.svg" 
+                            alt="likes" 
+                            class="empty-heart"
+                        >                  
                         <input type="checkbox" 
                             id="${id}"
                             class="like-checkbox"
@@ -38,6 +42,10 @@ class Media {
                         <img src="./assets/icons/heart.svg" 
                             alt="likes" 
                             class="heart"
+                        >
+                        <img src="./assets/icons/empty-heart.svg" 
+                            alt="likes" 
+                            class="empty-heart"
                         >
                     </div>
                 </div>
@@ -62,6 +70,10 @@ class Media {
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
+                        <img src="./assets/icons/empty-heart.svg" 
+                            alt="likes" 
+                            class="empty-heart"
+                        >
                         <input type="checkbox" 
                             id="${id}"
                             class="like-checkbox"

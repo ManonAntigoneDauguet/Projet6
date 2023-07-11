@@ -120,12 +120,14 @@
 
 .gallery-element .heart {
     height: 24px;
+    transform: scale(0);
+    transition: .1s ease-in-out;
 }
 
 .gallery-element .empty-heart {
     height: 20px;
     position: absolute;
-    right: 0;
+    right: 1px;
 }
 
 .gallery-element .text-content {
@@ -165,10 +167,15 @@
     border-radius: 5px;
     border: none;
     appearance: none;
+    z-index: 2;
 }
 
 .like-checkbox:checked + .likes {
     animation: like 1s;
+}
+
+.like-checkbox:checked ~ .heart {
+    transform: scale(1);
 }
 
 @keyframes like {
