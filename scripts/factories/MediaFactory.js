@@ -5,9 +5,9 @@ class Media {
 
     getMediaCardDOM() {
         // Gère le traitement différentiel du média selon son type
-        if (Object.prototype.hasOwnProperty.call(this._media, "image")) {
+        if (this._media.image) {
             return this.generatePhoto(this._media);
-        } else if (Object.prototype.hasOwnProperty.call(this._media, "video")) {
+        } else if (this._media.video) {
             return this.generateVideo(this._media);
         } else {
             throw 'Unknow media type';

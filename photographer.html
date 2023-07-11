@@ -58,14 +58,53 @@
           Gallerie d'images
         </h2>
         <div class="filters-gallery">
-          <label for="filters">
+          <p aria-labelledby="listbox1">
             Trier par
-          </label>
-          <select name="filters" id="filters">
-            <option value="by-popularity">Popularité</option>
-            <option value="by-date">Date</option>
-            <option value="by-titke">Titre</option>
-          </select>
+          </p>
+          <div class="filters">
+            <input type="checkbox" id="filters-checkbox">
+            <label for="filters-checkbox" class="filter_selected button">
+              <span>Popularité</span>
+              <img src="./assets/icons/chevron.svg" 
+                alt="Etendre"
+                class="chevron"
+              >                 
+            </label>
+            <div 
+              class="filters_options" 
+              role="listbox" 
+              id="listbox1" 
+              aria-activedescendant="listbox1-1"
+            >  
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-1"
+                aria-label="trier par popularité"
+                tabindex="-1"
+              >
+                Popularité
+              </button>
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-2"
+                aria-label="trier par date"
+                tabindex="-1"
+              >
+                Date
+              </button>
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-3"
+                aria-label="trier par titre"
+                tabindex="-1"
+              >
+                Titre
+              </button>
+            </div>
+          </div>
         </div>
         <div class="photograph-gallery">
         </div>
@@ -130,7 +169,10 @@
               </textarea>              
             </fieldset>
 					</div>
-          <button type="submit" class="send_button button">
+          <button type="submit" 
+            class="send_button button"
+            aria-label="envoyer"
+          >
             Envoyer
           </button>
 				</form>
