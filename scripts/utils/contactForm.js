@@ -30,7 +30,6 @@ async function opacityAppear(DOMEelement) {
 // Gestion du focus
 function removeFocus(section) {
     const focusableElements = document.querySelectorAll(`${section.localName} a, ${section.localName} button, ${section.localName} input, ${section.localName} textarea, ${section.localName} select, ${section.localName} details, ${section.localName} video`);
-    console.log(focusableElements);
     for (let i = 0; i < focusableElements.length; i++) {
         focusableElements[i].setAttribute("tabindex", "-1");
     }
@@ -38,9 +37,8 @@ function removeFocus(section) {
 
 function addFocus(section) {
     const focusableElements = document.querySelectorAll(`${section.localName} a, ${section.localName} button, ${section.localName} input, ${section.localName} textarea, ${section.localName} select, ${section.localName} details, ${section.localName} video`);
-    console.log(focusableElements);
     for (let i = 0; i < focusableElements.length; i++) {
-        focusableElements[i].setAttribute("tabindex", "-1");
+        focusableElements[i].setAttribute("tabindex", "0");
     }
 }
 
@@ -53,7 +51,8 @@ async function openModal() {
     main.setAttribute("aria-hidden", "true");
     removeFocus(main);
     header.setAttribute("aria-hidden", "true");
-    removeFocus(header).
+    removeFocus(header);
+    closeButton.setAttribute("tabindex", "0");
     closeButton.focus();
 }
 

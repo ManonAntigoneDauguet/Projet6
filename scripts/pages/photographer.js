@@ -83,8 +83,14 @@ function closeSelection() {
 openButton.addEventListener("change", () => {
     if (openButton.checked) {
         document.querySelector( '.chevron' ).alt = "Refermer";
+        for (let i = 0; i < filters.length; i++) {
+            filters[i].setAttribute("tabindex", "0");
+        }
     } else {
         document.querySelector( '.chevron' ).alt = "Etendre";
+        for (let i = 0; i < filters.length; i++) {
+            filters[i].setAttribute("tabindex", "-1");
+        }      
     }
 })
 
