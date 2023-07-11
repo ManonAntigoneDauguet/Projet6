@@ -52,17 +52,15 @@ const photographerId = params.get( 'photographer' );
 
         // Récupère les média du photographe sélectionné
         const { media } = await getPhotographers();
-        gallery = media.filter(media => media.photographerId == photographerId);
+        const gallery = media.filter(media => media.photographerId == photographerId);
 
         // Creation et affichage du profil et de la gallerie du photographe
         displayPhotographerData(photographer);
         displayGalleryData(gallery);
-
-
+        displayFilters(gallery);
     }
 
 const gallerySection = document.querySelector(".photograph-gallery");
-let gallery = "pas encore chargée";
 init();
 
 
@@ -102,29 +100,35 @@ for (let i = 0; i < filters.length; i++) {
 
 
 // Filtres
-filter3.addEventListener("click", () => { 
+function displayFilters(gallery) {
+    filter1.addEventListener("click", () => orderByPopularity(gallery));
+    filter2.addEventListener("click", () => orderByDate(gallery));
+    filter3.addEventListener("click", () => orderByTitle(gallery));
+}
+
+function orderByTitle(gallery) {
     const orderedByTitle = Array.from(gallery);
     orderedByTitle.sort(function (a, b) {
         return a.title.localeCompare(b.title);
     });
     gallerySection.innerHTML = "";
     displayGalleryData(orderedByTitle);
-})    
+}
 
-filter1.addEventListener("click", () => {
-    const orderedByPopularity = Array.from(gallery);
-    orderedByPopularity.sort(function (a, b) {
-        return b.likes - a.likes;
-    });
-    gallerySection.innerHTML = "";
-    displayGalleryData(orderedByPopularity);
-})  
-
-filter2.addEventListener("click", () => {
+function orderByDate(gallery) {
     const orderedByDate = Array.from(gallery);
     orderedByDate.sort(function (a, b) {
         return b.date.localeCompare(a.date);
     });
     gallerySection.innerHTML = "";
     displayGalleryData(orderedByDate);
-}) 
+}
+
+function orderByPopularity(gallery) {
+    const orderedByPopularity = Array.from(gallery);
+    orderedByPopularity.sort(function (a, b) {
+        return b.likes - a.likes;
+    });
+    gallerySection.innerHTML = "";
+    displayGalleryData(orderedByPopularity);    
+}
