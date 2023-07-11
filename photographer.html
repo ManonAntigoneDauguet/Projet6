@@ -58,7 +58,9 @@
           Gallerie d'images
         </h2>
         <div class="filters-gallery">
-          <p id="listbox1" role="label">Trier par</p>
+          <p id="listbox1" role="label">
+            Trier par
+          </p>
           <div class="filters">
             <input type="checkbox" id="filters-checkbox">
             <label for="filters-checkbox" class="filter_selected button">
@@ -68,10 +70,37 @@
                 class="chevron"
               >                 
             </label>
-            <div class="filters_options" role="listbox" id="listbox1" aria-labelledby="listbox1" aria-activedescendant="listbox1-1">  
-              <button type="button" class="button" role="option" id="listbox1-1">Popularité</button>
-              <button type="button" class="button" role="option" id="listbox1-2">Date</button>
-              <button type="button" class="button" role="option" id="listbox1-3">Titre</button>
+            <div 
+              class="filters_options" 
+              role="listbox" 
+              id="listbox1" 
+              aria-labelledby="listbox1" 
+              aria-activedescendant="listbox1-1"
+            >  
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-1"
+                aria-label="trier par popularité"
+              >
+                Popularité
+              </button>
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-2"
+                aria-label="trier par date"
+              >
+                Date
+              </button>
+              <button type="button" 
+                class="button" 
+                role="option" 
+                id="listbox1-3"
+                aria-label="trier par titre"
+              >
+                Titre
+              </button>
             </div>
           </div>
         </div>
