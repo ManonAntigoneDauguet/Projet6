@@ -1,6 +1,6 @@
 /****************** LIGHTBOX ************************/
 #lightbox {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 5;
     height: 100%;

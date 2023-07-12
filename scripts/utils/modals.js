@@ -1,20 +1,35 @@
 /********************* ELEMENTS DU DOM ********************/
-const modal = document.getElementById("contact_modal");
-const form = document.querySelector("form[name='contact_form']");
+
 const main = document.querySelector("main");
 const header = document.querySelector("header");
-const modalHeader = document.querySelector(".modal header");
 const animationDelay = 500;
+
+
+// CONTACT FORM
+const contact = document.getElementById("contact_modal");
+const form = document.querySelector("form[name='contact_form']");
+const contactHeader = document.querySelector(".modal header");
 const validationMessage = document.querySelector(".validation_message");
-const inputs = document.querySelectorAll( '.modal input' );
-const message = document.querySelector("textarea[name='message']");
+const contactInputs = document.querySelectorAll( '.modal input' );
+const contactMessage = document.querySelector("textarea[name='message']");
 // boutons de la page
-const contactButton = document.querySelector(".contact_button");
-const closeButton = document.querySelector("button[aria-label='Close']");
-const endedButton = document.querySelector(".validation_message button");
+const contactOpenButton = document.querySelector(".contact_button");
+const contactCloseButton = document.querySelector("#contact_modal button[aria-label='Close']");
+const contactEndedButton = document.querySelector(".validation_message button");
+
+
+// LIGHTBOX
+const lightbox = document.getElementById("lightbox");
+// boutons de la page
+const lightboxOpenButton = document.querySelector(".profile-picture");
+const lightboxCloseButton = document.querySelector("#lightbox button[aria-label='Close']");
+// const lightNextButton = document.querySelector("button[aria-label='Next']");
+// const lightPreviousButton = document.querySelector("button[aria-label='Previous']");
+
 
 
 /*******************  OUVERTURE ET FERMETURE **************/
+
 // Animations
 async function opacityDeseappear(DOMEelement) {
     DOMEelement.style.animationName = "opacity-desappear";
@@ -25,7 +40,6 @@ async function opacityAppear(DOMEelement) {
     DOMEelement.style.animationName = "opacity-appear";
     DOMEelement.style.animationDuration = `${animationDelay}ms`;
 }
-
 
 // Gestion du focus
 function removeFocus(section) {
@@ -42,9 +56,8 @@ function addFocus(section) {
     }
 }
 
-
 // Ouverture/Fermeture
-async function openModal() {
+async function openModal(modal, closeButton) {
     await opacityAppear(modal);
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
@@ -56,7 +69,7 @@ async function openModal() {
     closeButton.focus();
 }
 
-async function closeModal() {
+async function closeModal(modal, openButton) {
     await opacityDeseappear(modal);
     setTimeout(() => {
         modal.style.display = "none";
@@ -66,46 +79,48 @@ async function closeModal() {
     addFocus(main);
     header.setAttribute("aria-hidden", "false");
     addFocus(header);
-    contactButton.focus();
+    openButton.focus();
 }
 
 
-/****************** COMPORTEMENT ET AFFICHAGE ***************/
-contactButton.addEventListener("click", () => {
-    openModal(); 
+
+/****************** CONTACT FORM ***************/
+
+// Comportement et affichage
+contactOpenButton.addEventListener("click", () => {
+    openModal(contact, contactCloseButton); 
     document.addEventListener("keydown", (event) => {
         if (event.key == "Escape") {
-            closeModal();
+            closeModal(contact, contactOpenButton);
         }
     })
 });
 
-closeButton.addEventListener("click", () => {
-    closeModal();
+contactCloseButton.addEventListener("click", () => {
+    closeModal(contact, contactOpenButton);
 });
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (isAllInputsValid()) {
-        for (let i = 0; i < inputs.length; i++) {
-            console.log(`${inputs[i].name} : ${inputs[i].value}`); 
+        for (let i = 0; i < contactInputs.length; i++) {
+            console.log(`${contactInputs[i].name} : ${contactInputs[i].value}`); 
         }
-        if (message.value.trim() !== "") {
-            console.log(`${message.name} : ${message.value}`);
+        if (contactMessage.value.trim() !== "") {
+            console.log(`${contactMessage.name} : ${contactMessage.value}`);
         }
         validationMessage.style.display = "block";
         form.style.display = "none";
-        modalHeader.style.display = "none";
-        endedButton.focus();                  
+        contactHeader.style.display = "none";
+        contactEndedButton.focus();                  
     }
 });
 
-endedButton.addEventListener("click", () => {
+contactEndedButton.addEventListener("click", () => {
     location.reload();
 });
 
-
-/******************** VALIDATION DES INPUTS ET FEEDBACK *********/
+// Validation des inputs et feedback
 function isInputValid(input) {
     let emailRegExp = new RegExp("[a-z._-]+@[a-z._-]+\\.[a-z._-]+")
     if (input.value.trim() === "" ||
@@ -126,17 +141,35 @@ function showFeedback(input) {
 }
 
 function isAllInputsValid() {
-    for (let i = 0; i < inputs.length; i++) {
-        if (!isInputValid(inputs[i])) {
+    for (let i = 0; i < contactInputs.length; i++) {
+        if (!isInputValid(contactInputs[i])) {
             return false;
         }
     } 
     return true;  
 }
 
-for (let i = 0; i < inputs.length; i++) {
-    let input = inputs[i];
+for (let i = 0; i < contactInputs.length; i++) {
+    let input = contactInputs[i];
     input.addEventListener('change', () => {
       showFeedback(input);
     });
 }
+
+
+
+/****************** LIGHTBOX ***************/
+
+// Comportement et affichage
+lightboxOpenButton.addEventListener("click", () => {
+    openModal(lightbox, lightboxCloseButton); 
+    document.addEventListener("keydown", (event) => {
+        if (event.key == "Escape") {
+            closeModal(lightbox, lightboxOpenButton);
+        }
+    })
+});
+
+lightboxCloseButton.addEventListener("click", () => {
+    closeModal(lightbox, lightboxOpenButton);
+});
