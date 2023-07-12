@@ -179,11 +179,13 @@ function incrementLikes(gallery) {
             if (likeButtons[i].checked) {
                 gallery[i].likes += 1;
                 likeHTML[i].innerHTML = gallery[i].likes;
+                yieldTotalLikes(gallery);
             }
             if (!likeButtons[i].checked) {
                 gallery[i].likes -= 1;
                 likeHTML[i].innerHTML = gallery[i].likes;
+                yieldTotalLikes(gallery);
             }
         })
-    } 
+    }
 }
