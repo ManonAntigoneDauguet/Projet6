@@ -161,12 +161,29 @@ function openFiltersNavigation() {
 
 function displayLikes(gallery) {
     yieldTotalLikes(gallery);
+    incrementLikes(gallery);
 }
 
 function yieldTotalLikes(gallery) {
     const totalLikesHTML = document.querySelector( '.total-likes');
     const allMediaLikes = gallery.map(gallery => gallery.likes);    
     let totalLikes = allMediaLikes.reduce((partialSum, a) => partialSum + a, 0);
-    totalLikesHTML.innerText = totalLikes;
+    totalLikesHTML.innerHTML = totalLikes;
 }
 
+function incrementLikes(gallery) {
+    const likeButtons = document.querySelectorAll( '.like-checkbox' );
+    const likeHTML = document.querySelectorAll( '.likes' );
+    for (let i = 0; i < gallery.length; i++) {
+        likeButtons[i].addEventListener("change", () => {
+            if (likeButtons[i].checked) {
+                gallery[i].likes += 1;
+                likeHTML[i].innerHTML = gallery[i].likes;
+            }
+            if (!likeButtons[i].checked) {
+                gallery[i].likes -= 1;
+                likeHTML[i].innerHTML = gallery[i].likes;
+            }
+        })
+    } 
+}
