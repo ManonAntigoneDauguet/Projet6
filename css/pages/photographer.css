@@ -86,7 +86,7 @@
     gap: 5px;
 }
 
-.price-and-likes .icon {
+.price-and-likes .heart {
     filter: grayscale(100%);
 }
 
@@ -118,8 +118,16 @@
     border-radius: 5px;
 }
 
-.gallery-element .icon {
+.gallery-element .heart {
     height: 24px;
+    transform: scale(0);
+    transition: .1s ease-in-out;
+}
+
+.gallery-element .empty-heart {
+    height: 20px;
+    position: absolute;
+    right: 1px;
 }
 
 .gallery-element .text-content {
@@ -139,14 +147,47 @@
 }
 
 .gallery-element .likes-div {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.gallery-element .likes-div span {
+.gallery-element .likes {
     font-weight: 500;
     font-size: 24px;
+    transform: scale(1);
+}
+
+.like-checkbox {
+    position: absolute;
+    right: -3.5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+    z-index: 2;
+}
+
+.like-checkbox:checked + .likes {
+    animation: like 1s;
+}
+
+.like-checkbox:checked ~ .heart {
+    transform: scale(1);
+}
+
+@keyframes like {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 
