@@ -175,6 +175,32 @@ async function clearLightbox(lightboxElements) {
     }
 }
 
+function openLightboxNavigation(lightboxElements, currentElement) {
+    let target = currentElement;
+    document.addEventListener("keydown", (event) => {
+        if (event.key == "ArrowRight" && target < lightboxElements.length-1) {      
+            clearLightbox(lightboxElements);
+            target += 1;
+            lightboxElements[target].style.display = "block";
+        }        
+        else if (event.key == "ArrowRight" && target == lightboxElements.length-1) {   
+            clearLightbox(lightboxElements);
+            target = 0;
+            lightboxElements[target].style.display = "block";
+        }
+        else if (event.key == "ArrowLeft" && target > 0) {     
+            clearLightbox(lightboxElements);
+            target -= 1;
+            lightboxElements[target].style.display = "block";
+        }
+        else if (event.key == "ArrowLeft" && target == 0) {    
+            clearLightbox(lightboxElements);
+            target = lightboxElements.length-1;
+            lightboxElements[target].style.display = "block";
+        }
+    })  
+}
+
 async function displayLightbox(gallery) {
     // Récupération des éléments de média générés via init
     const lightboxElements = document.querySelectorAll( '.lightbox-element' );
@@ -184,6 +210,7 @@ async function displayLightbox(gallery) {
         lightboxOpenButton.addEventListener("click", async () => {
             clearLightbox(lightboxElements);
             openModal(lightbox);
+            openLightboxNavigation(lightboxElements, i);
             lightboxElements[i].style.display = "block";
             document.addEventListener("keydown", (event) => {
                 if (event.key == "Escape") {

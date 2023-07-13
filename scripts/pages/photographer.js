@@ -43,7 +43,7 @@ const photographerId = params.get( 'photographer' );
             const mediaModel = new Media(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             gallerySection.appendChild(mediaCardDOM);
-            const lightboxSlide = mediaModel.getLihtboxDOM(media);
+            const lightboxSlide = mediaModel.getLihtboxDOM();
             lightboxSection.appendChild(lightboxSlide);
         });
     }
@@ -149,12 +149,12 @@ function orderByPopularity(gallery) {
 
 function openFiltersNavigation() {
     let target = -1;
-    document.addEventListener("keydown", (e) => {
-        if (e.key == "ArrowRight" && target < filters.length-1) {      
+    document.addEventListener("keydown", (event) => {
+        if (event.key == "ArrowRight" && target < filters.length-1) {      
             target += 1;
             filters[target].focus();
         }        
-        if (e.key == "ArrowLeft" && target > 0) {     
+        else if (event.key == "ArrowLeft" && target > 0) {     
             target -= 1;
             filters[target].focus();
         }
