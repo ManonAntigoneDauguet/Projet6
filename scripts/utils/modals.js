@@ -23,8 +23,8 @@ const lightbox = document.getElementById("lightbox");
 // boutons de la page
 let lightboxOpenButton = document.querySelector(".gallery-element");
 const lightboxCloseButton = document.querySelector("#lightbox button[aria-label='Close']");
-// const lightNextButton = document.querySelector("button[aria-label='Next']");
-// const lightPreviousButton = document.querySelector("button[aria-label='Previous']");
+const lightboxNextButton = document.querySelector("button[aria-label='Next']");
+const lightboxPreviousButton = document.querySelector("button[aria-label='Previous']");
 
 
 
@@ -199,6 +199,30 @@ function openLightboxNavigation(lightboxElements, currentElement) {
             lightboxElements[target].style.display = "block";
         }
     })  
+    lightboxNextButton.addEventListener("click", () => {
+        if (target > 0) {     
+            clearLightbox(lightboxElements);
+            target -= 1;
+            lightboxElements[target].style.display = "block";
+        }
+        else if (target == 0) {    
+            clearLightbox(lightboxElements);
+            target = lightboxElements.length-1;
+            lightboxElements[target].style.display = "block";
+        }
+    })
+    lightboxPreviousButton.addEventListener("click", () => {
+        if (target < lightboxElements.length-1) {      
+            clearLightbox(lightboxElements);
+            target += 1;
+            lightboxElements[target].style.display = "block";
+        }        
+        else if (target == lightboxElements.length-1) {   
+            clearLightbox(lightboxElements);
+            target = 0;
+            lightboxElements[target].style.display = "block";
+        }       
+    })
 }
 
 async function displayLightbox(gallery) {
