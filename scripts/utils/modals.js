@@ -21,7 +21,7 @@ const contactEndedButton = document.querySelector(".validation_message button");
 // LIGHTBOX
 const lightbox = document.getElementById("lightbox");
 // boutons de la page
-const lightboxOpenButton = document.querySelector(".profile-picture");
+let lightboxOpenButton = document.querySelector(".gallery-element");
 const lightboxCloseButton = document.querySelector("#lightbox button[aria-label='Close']");
 // const lightNextButton = document.querySelector("button[aria-label='Next']");
 // const lightPreviousButton = document.querySelector("button[aria-label='Previous']");
@@ -57,7 +57,7 @@ function addFocus(section) {
 }
 
 // Ouverture/Fermeture
-async function openModal(modal, closeButton) {
+async function openModal(modal, closeButton=undefined) {
     await opacityAppear(modal);
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
@@ -65,11 +65,13 @@ async function openModal(modal, closeButton) {
     removeFocus(main);
     header.setAttribute("aria-hidden", "true");
     removeFocus(header);
-    closeButton.setAttribute("tabindex", "0");
-    closeButton.focus();
+    if (closeButton != undefined) {
+        closeButton.setAttribute("tabindex", "0");
+        closeButton.focus();        
+    }
 }
 
-async function closeModal(modal, openButton) {
+async function closeModal(modal, openButton=undefined) {
     await opacityDeseappear(modal);
     setTimeout(() => {
         modal.style.display = "none";
@@ -79,7 +81,9 @@ async function closeModal(modal, openButton) {
     addFocus(main);
     header.setAttribute("aria-hidden", "false");
     addFocus(header);
-    openButton.focus();
+    if (openButton != undefined) {
+        openButton.focus();        
+    }
 }
 
 
@@ -161,15 +165,33 @@ for (let i = 0; i < contactInputs.length; i++) {
 /****************** LIGHTBOX ***************/
 
 // Comportement et affichage
-lightboxOpenButton.addEventListener("click", () => {
-    openModal(lightbox, lightboxCloseButton); 
-    document.addEventListener("keydown", (event) => {
-        if (event.key == "Escape") {
-            closeModal(lightbox, lightboxOpenButton);
-        }
-    })
-});
-
 lightboxCloseButton.addEventListener("click", () => {
     closeModal(lightbox, lightboxOpenButton);
 });
+
+async function clearLightbox(lightboxElements) {
+    for (let i = 0; i < lightboxElements.length; i++) {
+        lightboxElements[i].style.display = "none";
+    }
+}
+
+async function displayLightbox(gallery) {
+    // Récupération des éléments de média générés via init
+    const lightboxElements = document.querySelectorAll( '.lightbox-element' );
+
+    for (let i = 0; i < gallery.length; i++) {
+        lightboxOpenButton = document.querySelector(`.media-card${gallery[i].id}`);
+        lightboxOpenButton.addEventListener("click", async () => {
+            clearLightbox(lightboxElements);
+            openModal(lightbox);
+            lightboxElements[i].style.display = "block";
+            document.addEventListener("keydown", (event) => {
+                if (event.key == "Escape") {
+                    closeModal(lightbox, lightboxOpenButton);
+                }
+            })
+        })
+    }
+}
+
+export { displayLightbox };

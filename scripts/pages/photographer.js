@@ -1,5 +1,6 @@
 //*************** IMPORTS DES FICHIERS NECESSAIRES ***************
-import Media from "../factories/mediaFactory.js";
+import Media from "../factories/MediaFactory.js";
+import { displayLightbox } from "../utils/modals.js";
 
 
 //************** RECUPERATION DU QUERY PARAM *********************
@@ -42,6 +43,8 @@ const photographerId = params.get( 'photographer' );
             const mediaModel = new Media(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             gallerySection.appendChild(mediaCardDOM);
+            const lightboxSlide = mediaModel.getLihtboxDOM(media);
+            lightboxSection.appendChild(lightboxSlide);
         });
     }
 
@@ -59,9 +62,11 @@ const photographerId = params.get( 'photographer' );
         displayGalleryData(gallery);
         displayFilters(gallery);
         displayLikes(gallery);
+        displayLightbox(gallery);
     }
 
 const gallerySection = document.querySelector(".photograph-gallery");
+const lightboxSection = document.querySelector(".slides");
 init();
 
 

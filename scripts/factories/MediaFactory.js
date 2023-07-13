@@ -24,7 +24,7 @@ class Media {
     
         const content = `
             <div class="content">
-                <video title="${title}" class="video" controls>
+                <video title="${title}" class="video media-card${id}">
                     <source src="${videoSrc}" type="video/mp4">
                 </video>
                 <div class="text-content">
@@ -66,7 +66,7 @@ class Media {
     
         const content = `
             <div class="content">
-                <img src="${photo}" alt="${title}" class="photo">
+                <img src="${photo}" alt="${title}" class="photo media-card${id}">
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
@@ -90,6 +90,39 @@ class Media {
         article.innerHTML = content;
 
         return (article);
+    }
+
+    getLihtboxDOM(media) {
+        if (this._media.image) {
+            const { photographerId, title, image } = media;
+            const photo = `assets/photographers/photographer${photographerId}/${image}`;
+            const article = document.createElement( 'article' );
+            article.classList.add( 'lightbox-element' );
+            const content = `
+                <img src="${photo}" alt="${title}" class="photo">
+                <p class="title">${title}</p>
+            `;
+            article.innerHTML = content;
+
+            return (article);
+        } else if (this._media.video) {
+            const { photographerId, title, video } = media;
+            const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
+            const article = document.createElement( 'article' );
+            article.classList.add( 'lightbox-element' );
+            const content = `
+                <video title="${title}" class="video" controls>
+                    <source src="${videoSrc}" type="video/mp4">
+                </video>
+                <p class="title">${title}</p>
+            `;
+            article.innerHTML = content;
+
+            return (article);
+        } else {
+            throw 'Unknow media type';
+        }
+
     }
 }
 
