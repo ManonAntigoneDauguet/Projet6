@@ -166,7 +166,7 @@ for (let i = 0; i < contactInputs.length; i++) {
 
 // Comportement et affichage
 lightboxCloseButton.addEventListener("click", () => {
-    closeModal(lightbox, lightboxOpenButton);
+    closeModal(lightbox);
 });
 
 async function clearLightbox(lightboxElements) {
@@ -238,7 +238,7 @@ async function displayLightbox(gallery) {
             lightboxElements[i].style.display = "block";
             document.addEventListener("keydown", (event) => {
                 if (event.key == "Escape") {
-                    closeModal(lightbox, lightboxOpenButton);
+                    closeModal(lightbox);
                 }
             })
         })

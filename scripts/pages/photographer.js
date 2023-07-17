@@ -126,7 +126,10 @@ function orderByTitle(gallery) {
         return a.title.localeCompare(b.title);
     });
     gallerySection.innerHTML = "";
+    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByTitle);
+    displayLightbox(orderedByTitle);
+    displayLikes(orderedByTitle);
 }
 
 function orderByDate(gallery) {
@@ -135,7 +138,10 @@ function orderByDate(gallery) {
         return b.date.localeCompare(a.date);
     });
     gallerySection.innerHTML = "";
+    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByDate);
+    displayLightbox(orderedByDate);
+    displayLikes(orderedByDate);
 }
 
 function orderByPopularity(gallery) {
@@ -144,7 +150,10 @@ function orderByPopularity(gallery) {
         return b.likes - a.likes;
     });
     gallerySection.innerHTML = "";
+    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByPopularity);
+    displayLightbox(orderedByPopularity);
+    displayLikes(orderedByPopularity);
 }
 
 function openFiltersNavigation() {
