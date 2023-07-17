@@ -24,9 +24,11 @@ class Media {
     
         const content = `
             <div class="content">
-                <video title="${title}" class="video media-card${id}">
-                    <source src="${videoSrc}" type="video/mp4">
-                </video>
+                <a href="javascript:;" class="media-card media-card${id}">
+                    <video title="${title}" class="video">
+                        <source src="${videoSrc}" type="video/mp4">
+                    </video>
+                </a>
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
@@ -66,7 +68,9 @@ class Media {
     
         const content = `
             <div class="content">
-                <img src="${photo}" alt="${title}" class="photo media-card${id}">
+                <a href="javascript:;" class="media-card media-card${id}">
+                    <img src="${photo}" alt="${title}" class="photo">
+                </a>
                 <div class="text-content">
                     <h3 class="title">${title}</h3>
                     <div class="likes-div">
