@@ -17,8 +17,10 @@
 }
 
 
-/******************* CLOSE MODALE **********************/
-button[aria-label="Close"] {
+/******************* OTHER BUTTONS **********************/
+button[aria-label="Close"], 
+button[aria-label="Next"],
+button[aria-label="Previous"] {
     border: none;
     background: rgb(0, 0, 0, 0);
     border-radius: 5px;
@@ -26,6 +28,10 @@ button[aria-label="Close"] {
 }
 
 button[aria-label="Close"]:hover,
-button[aria-label="Close"]:focus {
+button[aria-label="Next"]:hover,
+button[aria-label="Previous"]:hover,
+button[aria-label="Close"]:focus,
+button[aria-label="Next"]:focus,
+button[aria-label="Previous"]:focus {
     background: var(--secondary-color);
 }

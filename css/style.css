@@ -1,6 +1,7 @@
 /**************** IMPORTS **********************/
 @import url("components/buttons.css");
 @import url("layouts/photographerCard.css");
+@import url("layouts/lightbox.css");
 @import url("layouts/contactForm.css");
 @import url("pages/index.css");
 @import url("pages/photographer.css");

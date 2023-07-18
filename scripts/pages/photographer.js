@@ -1,5 +1,6 @@
 //*************** IMPORTS DES FICHIERS NECESSAIRES ***************
-import Media from "../factories/mediaFactory.js";
+import Media from "../factories/MediaFactory.js";
+import { displayLightbox } from "../utils/modals.js";
 
 
 //************** RECUPERATION DU QUERY PARAM *********************
@@ -59,6 +60,7 @@ const photographerId = params.get( 'photographer' );
         displayGalleryData(gallery);
         displayFilters(gallery);
         displayLikes(gallery);
+        displayLightbox(gallery);
     }
 
 const gallerySection = document.querySelector(".photograph-gallery");
@@ -122,6 +124,8 @@ function orderByTitle(gallery) {
     });
     gallerySection.innerHTML = "";
     displayGalleryData(orderedByTitle);
+    displayLightbox(orderedByTitle);
+    displayLikes(orderedByTitle);
 }
 
 function orderByDate(gallery) {
@@ -131,6 +135,8 @@ function orderByDate(gallery) {
     });
     gallerySection.innerHTML = "";
     displayGalleryData(orderedByDate);
+    displayLightbox(orderedByDate);
+    displayLikes(orderedByDate);
 }
 
 function orderByPopularity(gallery) {
@@ -140,16 +146,18 @@ function orderByPopularity(gallery) {
     });
     gallerySection.innerHTML = "";
     displayGalleryData(orderedByPopularity);
+    displayLightbox(orderedByPopularity);
+    displayLikes(orderedByPopularity);
 }
 
 function openFiltersNavigation() {
     let target = -1;
-    document.addEventListener("keydown", (e) => {
-        if (e.key == "ArrowRight" && target < filters.length-1) {      
+    document.addEventListener("keydown", (event) => {
+        if (event.key == "ArrowRight" && target < filters.length-1) {      
             target += 1;
             filters[target].focus();
         }        
-        if (e.key == "ArrowLeft" && target > 0) {     
+        else if (event.key == "ArrowLeft" && target > 0) {     
             target -= 1;
             filters[target].focus();
         }

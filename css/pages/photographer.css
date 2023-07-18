@@ -118,6 +118,10 @@
     border-radius: 5px;
 }
 
+.gallery-element .media-card:focus, .gallery-element .media-card:hover {
+    opacity: 0.6;
+}
+
 .gallery-element .heart {
     height: 24px;
     transform: scale(0);
