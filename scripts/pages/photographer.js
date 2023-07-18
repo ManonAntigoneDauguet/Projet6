@@ -43,8 +43,6 @@ const photographerId = params.get( 'photographer' );
             const mediaModel = new Media(media);
             const mediaCardDOM = mediaModel.getMediaCardDOM();
             gallerySection.appendChild(mediaCardDOM);
-            const lightboxSlide = mediaModel.getLihtboxDOM();
-            lightboxSection.appendChild(lightboxSlide);
         });
     }
 
@@ -66,7 +64,6 @@ const photographerId = params.get( 'photographer' );
     }
 
 const gallerySection = document.querySelector(".photograph-gallery");
-const lightboxSection = document.querySelector(".slides");
 init();
 
 
@@ -126,7 +123,6 @@ function orderByTitle(gallery) {
         return a.title.localeCompare(b.title);
     });
     gallerySection.innerHTML = "";
-    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByTitle);
     displayLightbox(orderedByTitle);
     displayLikes(orderedByTitle);
@@ -138,7 +134,6 @@ function orderByDate(gallery) {
         return b.date.localeCompare(a.date);
     });
     gallerySection.innerHTML = "";
-    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByDate);
     displayLightbox(orderedByDate);
     displayLikes(orderedByDate);
@@ -150,7 +145,6 @@ function orderByPopularity(gallery) {
         return b.likes - a.likes;
     });
     gallerySection.innerHTML = "";
-    lightboxSection.innerHTML = "";
     displayGalleryData(orderedByPopularity);
     displayLightbox(orderedByPopularity);
     displayLikes(orderedByPopularity);

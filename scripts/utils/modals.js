@@ -169,73 +169,94 @@ lightboxCloseButton.addEventListener("click", () => {
     closeModal(lightbox);
 });
 
-async function clearLightbox(lightboxElements) {
-    for (let i = 0; i < lightboxElements.length; i++) {
-        lightboxElements[i].style.display = "none";
-    }
-}
-
 function openLightboxNavigation(lightboxElements, currentElement) {
     let target = currentElement;
     document.addEventListener("keydown", (event) => {
         if (event.key == "ArrowRight" && target < lightboxElements.length-1) {      
-            clearLightbox(lightboxElements);
             target += 1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }        
         else if (event.key == "ArrowRight" && target == lightboxElements.length-1) {   
-            clearLightbox(lightboxElements);
             target = 0;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }
         else if (event.key == "ArrowLeft" && target > 0) {     
-            clearLightbox(lightboxElements);
             target -= 1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }
         else if (event.key == "ArrowLeft" && target == 0) {    
-            clearLightbox(lightboxElements);
             target = lightboxElements.length-1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }
     })  
     lightboxNextButton.addEventListener("click", () => {
         if (target > 0) {     
-            clearLightbox(lightboxElements);
             target -= 1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }
         else if (target == 0) {    
-            clearLightbox(lightboxElements);
             target = lightboxElements.length-1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }
     })
     lightboxPreviousButton.addEventListener("click", () => {
         if (target < lightboxElements.length-1) {      
-            clearLightbox(lightboxElements);
             target += 1;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }        
         else if (target == lightboxElements.length-1) {   
-            clearLightbox(lightboxElements);
             target = 0;
-            lightboxElements[target].style.display = "block";
+            getLihtboxDOM(lightboxElements[target]);
         }       
     })
 }
 
+function getLihtboxDOM(media) {
+    document.querySelector( '.media-contener' ).innerHTML = "";
+    if (media.image) {
+        return generatePhotoLightbox(media);
+    } else if (media.video) {
+        return generateVideoLightbox(media);
+    } else {
+        throw 'Unknow media type';
+    }
+}
+
+function generatePhotoLightbox(media) {
+    const { photographerId, title, image } = media;
+    const photo = `assets/photographers/photographer${photographerId}/${image}`;
+
+    document.querySelector( '.lightbox-element .title' ).textContent = title;
+    const mediaContener = document.querySelector( '.media-contener' );
+    const content = `
+        <img src="${photo}" alt="${title}" class="photo">
+    `;
+    mediaContener.innerHTML = content;       
+}
+
+function generateVideoLightbox(media) {
+    const { photographerId, title, video } = media;
+    const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
+
+    document.querySelector( '.lightbox-element .title' ).textContent = title;
+    const mediaContener = document.querySelector( '.media-contener' );
+    const content = `
+        <video title="${title}" class="video" controls>
+            <source src="${videoSrc}" type="video/mp4">
+        </video>
+    `;
+    mediaContener.innerHTML = content;    
+}
+
 async function displayLightbox(gallery) {
     // Récupération des éléments de média générés via init
-    const lightboxElements = document.querySelectorAll( '.lightbox-element' );
 
     for (let i = 0; i < gallery.length; i++) {
         lightboxOpenButton = document.querySelector(`.media-card${gallery[i].id}`);
         lightboxOpenButton.addEventListener("click", async () => {
-            clearLightbox(lightboxElements);
             openModal(lightbox);
-            openLightboxNavigation(lightboxElements, i);
-            lightboxElements[i].style.display = "block";
+            getLihtboxDOM(gallery[i]);
+            openLightboxNavigation(gallery, i);
             document.addEventListener("keydown", (event) => {
                 if (event.key == "Escape") {
                     closeModal(lightbox);

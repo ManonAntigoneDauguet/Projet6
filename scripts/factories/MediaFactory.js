@@ -95,46 +95,6 @@ class Media {
 
         return (article);
     }
-
-    getLihtboxDOM() {
-        if (this._media.image) {
-            return this.generatePhotoLightbox(this._media);
-        } else if (this._media.video) {
-            return this.generateVideoLightbox(this._media);
-        } else {
-            throw 'Unknow media type';
-        }
-    }
-
-    generatePhotoLightbox(media) {
-        const { photographerId, title, image } = media;
-        const photo = `assets/photographers/photographer${photographerId}/${image}`;
-        const article = document.createElement( 'article' );
-        article.classList.add( 'lightbox-element' );
-        const content = `
-            <img src="${photo}" alt="${title}" class="photo">
-            <p class="title">${title}</p>
-        `;
-        article.innerHTML = content;
-
-        return (article);       
-    }
-
-    generateVideoLightbox(media) {
-        const { photographerId, title, video } = media;
-        const videoSrc = `assets/photographers/photographer${photographerId}/${video}`;
-        const article = document.createElement( 'article' );
-        article.classList.add( 'lightbox-element' );
-        const content = `
-            <video title="${title}" class="video" controls>
-                <source src="${videoSrc}" type="video/mp4">
-            </video>
-            <p class="title">${title}</p>
-        `;
-        article.innerHTML = content;
-
-        return (article);    
-    }
 }
 
 export default Media;
