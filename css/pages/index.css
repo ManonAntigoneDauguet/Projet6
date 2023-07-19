@@ -1,0 +1,32 @@
+/***************** PHOTOGRAPHER_SECTION *************/
+.photographer_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 80px;
+}
+
+.photographer_section .photographer-card, 
+.photographer_section .photographer-card a {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.photographer_section .photographer-card .name {
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+.photographer_section .photographer-card .localisation {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.photographer_section .photographer-card a:hover,
+.photographer_section .photographer-card a:focus {
+    opacity: 0.6;
+}

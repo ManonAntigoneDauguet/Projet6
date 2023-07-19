@@ -1,0 +1,276 @@
+/******************* PHOTOGRAPHE-HEADER ************/
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 313px;
+    margin: 30px 100px 0px 100px;
+    border-radius: 5px;
+}
+
+.photograph-header_content {
+    height: 313px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0 50px;
+    width: 100%;
+    gap: 5px;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photograph-header .profile-picture-contener {
+    grid-column: 3 / 4;
+    text-align: center;
+}
+
+.photograph-header .photographer-card {
+    position: relative;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.photograph-header .name {
+    margin: 0;
+    font-size: 64px;
+    white-space: nowrap;
+}
+
+.photograph-header .photographer-card .localisation {
+    font-size: 24px;
+    position: relative;
+    bottom: 15px;
+}
+
+.photograph-header .photographer-card .tagline {
+    font-size: 18px;
+    position: relative;
+    bottom: 15px;
+}
+
+.contact {
+    grid-column: 2 / 3;
+    text-align: center;
+    position: relative;
+}
+
+.contact_button {
+    position: relative;
+    transform: translate(-30%, 25%);
+}
+
+
+/****************** Price-AND-Likes **************/
+.price-and-likes {
+    z-index: 2;
+    position: fixed;
+    right: 50px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--modal-background);
+    height: 89px;
+    width: 376px;
+    align-items: center;
+    padding: 0px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.price-and-likes .likes-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price-and-likes .heart {
+    filter: grayscale(100%);
+}
+
+
+/****************** GALLERY_SECTION **************/
+.gallery_section {
+    margin: 25px 100px;
+}
+
+
+/****************** PHOTOGRAPHER-GALLERY *********/
+.photograph-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.gallery-element {
+    width: 350px;
+    height: 351px;
+}
+
+.gallery-element .photo, .gallery-element .video {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.gallery-element .media-card:focus, .gallery-element .media-card:hover {
+    opacity: 0.6;
+}
+
+.gallery-element .heart {
+    height: 24px;
+    transform: scale(0);
+    transition: .1s ease-in-out;
+}
+
+.gallery-element .empty-heart {
+    height: 20px;
+    position: absolute;
+    right: 1px;
+}
+
+.gallery-element .text-content {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary-color);
+}
+
+.gallery-element .title {
+    font-weight: 400;
+    font-size: 24px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gallery-element .likes-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gallery-element .likes {
+    font-weight: 500;
+    font-size: 24px;
+    transform: scale(1);
+}
+
+.like-checkbox {
+    position: absolute;
+    right: -3.5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+    z-index: 2;
+}
+
+.like-checkbox:checked + .likes {
+    animation: like 1s;
+}
+
+.like-checkbox:checked ~ .heart {
+    transform: scale(1);
+}
+
+@keyframes like {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/**************** FILTERS OPTIONS ******************/
+.filters-gallery {
+    margin-bottom: 60px;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    gap: 25px;
+}
+
+.filters {
+    position: relative;
+}
+
+.filters_options {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    width: 170px;
+    padding: 11px;
+    box-sizing: border-box;
+    transform: scaleY(0);
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+}
+
+.filters_options button {
+    text-align: start;
+    width: auto;
+    border-radius: 0;
+    height: 52px;
+}
+
+.filters_options button + button {
+    border-top: white solid 1px;
+}
+
+#filters-checkbox {
+    position: absolute;
+    z-index: 3;
+    right: 6px;
+    top: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    appearance: none;
+}
+
+.filter_selected {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 22px;
+}
+
+.filter_selected .chevron {
+    height: 32px;
+    filter: invert(100%);
+    z-index: 3;   
+}
+
+
+/* évennements lors de l'ouverture */
+#filters-checkbox:checked ~ .filters_options {
+    transform: scaleY(1);
+}
+
+#filters-checkbox:checked ~ .filter_selected .chevron {
+    transform: rotate(180deg);
+    transition: .1s ease-in-out;
+}
+
+#filters-checkbox:not(:checked) ~ .filter_selected .chevron {
+    transition: .2s ease-in-out;
+}
